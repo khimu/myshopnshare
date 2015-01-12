@@ -1,0 +1,163 @@
+8
+
+dir
+82
+http://76.91.160.2:8183/svn/meetme/meetme.war/js/validation/jquery-validate/demo
+http://76.91.160.2:8183/svn
+
+
+
+2009-01-21T09:00:28.642000Z
+82
+kim
+
+
+svn:special svn:externals svn:needs-lock
+
+multipart
+dir
+
+errorcontainer-demo.html
+file
+
+
+
+
+2009-01-14T07:20:30.000000Z
+38f9397c22abb3cc0bbb3f87cab56d60
+2009-01-21T09:00:28.642000Z
+82
+kim
+
+custom-messages-metadata-demo.html
+file
+
+
+
+
+2009-01-14T07:20:30.000000Z
+88222e975dc6fd8af7d930767e84873f
+2009-01-21T09:00:28.642000Z
+82
+kim
+
+radio-checkbox-select-demo.html
+file
+
+
+
+
+2009-01-14T07:20:30.000000Z
+6b14e92cd45d90feff8b2441b5eff352
+2009-01-21T09:00:28.642000Z
+82
+kim
+
+css
+dir
+
+form.php
+file
+
+
+
+
+2009-01-14T07:20:30.000000Z
+c37704e6d34221253074ce7b1050235b
+2009-01-21T09:00:28.642000Z
+82
+kim
+
+dynamic-totals.html
+file
+
+
+
+
+2009-01-14T07:20:30.000000Z
+c8b150486e442399fcc1d78628dd99da
+2009-01-21T09:00:28.642000Z
+82
+kim
+
+milk
+dir
+
+example.html
+file
+
+
+
+
+2009-01-14T07:20:30.000000Z
+2a766dda68d09940bb963f40992da664
+2009-01-21T09:00:28.642000Z
+82
+kim
+
+ajaxSubmit-intergration-demo.html
+file
+
+
+
+
+2009-01-14T07:20:30.000000Z
+178103e94261281a9d28ef5d5e19422d
+2009-01-21T09:00:28.642000Z
+82
+kim
+
+custom-methods-demo.html
+file
+
+
+
+
+2009-01-14T07:20:30.000000Z
+85c0e4191ac3e4693b7702c2cf839903
+2009-01-21T09:00:28.642000Z
+82
+kim
+
+marketo
+dir
+
+captcha
+dir
+
+images
+dir
+
+login
+dir
+
+tinymce
+dir
+
+index.html
+file
+
+
+
+
+2009-01-14T07:20:30.000000Z
+d13b072ff1c7a4bec614d04661883140
+2009-01-21T09:00:28.642000Z
+82
+kim
+
+form.phps
+file
+
+
+
+
+2009-01-14T07:20:30.000000Z
+c37704e6d34221253074ce7b1050235b
+2009-01-21T09:00:28.642000Z
+82
+kim
+
+js
+dir
+

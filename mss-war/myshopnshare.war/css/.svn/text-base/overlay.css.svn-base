@@ -1,0 +1,54 @@
+div.overlay {	
+	padding:40px;	
+	width:576px; 
+	display:none;
+	background-image:url(/img/overlay/gray.png);	
+}
+
+div.overlay div.close {
+	background:url(/img/overlay/close.png) no-repeat;
+	position:absolute;
+	top:2px;
+	right:5px; 
+	width:35px;
+	height:35px;
+	cursor:pointer;
+}
+
+#apple div.close {
+	background-image:url(/img/overlay/apple-close.png);
+	left:16px;
+	top:18px;
+}
+
+#apple p {
+	color:#fff;	
+}
+
+div.overlay p {
+	color:#567;
+	font-size:50px;
+	margin:60px;
+}
+
+#petrol p {
+	color:#fff;		
+}
+
+#custom {	
+	width:432px;
+	display:none;
+}
+
+
+#custom div.close {
+	left:80px;
+	top:-25px;
+}
+
+
+#external a {
+	font-size:35px;
+	color:#95d0df;
+	text-decoration:none;
+}

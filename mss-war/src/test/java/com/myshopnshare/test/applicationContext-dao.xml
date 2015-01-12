@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+    <!--default-autowire="byName">-->
+    				
+	<context:component-scan base-package="com.myshopnshare.core.dao">
+        <context:include-filter type="annotation"
+            expression="org.springframework.stereotype.Repository"/>
+    </context:component-scan>
+    
+	<bean id="adsTagDAO" class="com.myshopnshare.core.dao.AdsTagDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="auditLogDAO" class="com.myshopnshare.core.dao.AuditLogDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+				
+	<bean id="addressDAO" class="com.myshopnshare.core.dao.AddressDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="authoritiesDAO" class="com.myshopnshare.core.dao.AuthoritiesDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>		
+	<bean id="bankDAO" class="com.myshopnshare.core.dao.BankDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	<bean id="commentsDAO" class="com.myshopnshare.core.dao.CommentsDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="confirmEmailDAO" class="com.myshopnshare.core.dao.ConfirmEmailDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	<bean id="creditCardDAO" class="com.myshopnshare.core.dao.CreditCardDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	<bean id="emailDAO" class="com.myshopnshare.core.dao.EmailDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>		
+	<bean id="newsCommentDAO" class="com.myshopnshare.core.dao.NewsCommentDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="newsDAO" class="com.myshopnshare.core.dao.NewsDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="friendDAO" class="com.myshopnshare.core.dao.FriendDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="headlineDAO" class="com.myshopnshare.core.dao.HeadlineDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="orderDetailDAO" class="com.myshopnshare.core.dao.OrderDetailDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	<bean id="paymentDAO" class="com.myshopnshare.core.dao.PaymentDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	<bean id="permissionDAO" class="com.myshopnshare.core.dao.PermissionDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	<bean id="personDAO" class="com.myshopnshare.core.dao.PersonDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	<bean id="phoneDAO" class="com.myshopnshare.core.dao.PhoneDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>		
+	<bean id="requestFriendDAO" class="com.myshopnshare.core.dao.RequestFriendDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>		
+
+	<bean id="roleDAO" class="com.myshopnshare.core.dao.RoleDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	<bean id="scribbleDAO" class="com.myshopnshare.core.dao.ScribbleDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	<bean id="userDAO" class="com.myshopnshare.core.dao.UserDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	<bean id="itemDAO" class="com.myshopnshare.core.dao.ItemDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	<bean id="activityVisibilityDAO" class="com.myshopnshare.core.dao.ActivityVisibilityDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	<bean id="actionDAO" class="com.myshopnshare.core.dao.ActionDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>				
+	<bean id="itemOrderDetailDAO" class="com.myshopnshare.core.dao.ItemOrderDetailDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="vendorItemDAO" class="com.myshopnshare.core.dao.VendorItemDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>				
+	<bean id="vendorDAO" class="com.myshopnshare.core.dao.VendorDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="photoDAO" class="com.myshopnshare.core.dao.PhotoDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	<bean id="toolDAO" class="com.myshopnshare.core.dao.ToolDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="itemCategoryDAO" class="com.myshopnshare.core.dao.ItemCategoryDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	<bean id="visibilityDomainDAO" class="com.myshopnshare.core.dao.VisibilityDomainDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	<bean id="photoCategoryDAO" class="com.myshopnshare.core.dao.PhotoCategoryDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	<bean id="itemVisibilityDomainDAO" class="com.myshopnshare.core.dao.ItemVisibilityDomainDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="vendorItemVisibilityDomainDAO" class="com.myshopnshare.core.dao.VendorItemVisibilityDomainDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	<bean id="personVisibilityDomainDAO" class="com.myshopnshare.core.dao.PersonVisibilityDomainDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>		
+	<bean id="faceDAO" class="com.myshopnshare.core.dao.FaceDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	<bean id="newsVisibilityDomainDAO" class="com.myshopnshare.core.dao.NewsVisibilityDomainDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>		
+	<bean id="scribbleVisibilityDomainDAO" class="com.myshopnshare.core.dao.ScribbleVisibilityDomainDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>		
+	<bean id="eventsDAO" class="com.myshopnshare.core.dao.EventsDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	<bean id="shoppingCartDAO" class="com.myshopnshare.core.dao.ShoppingCartDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	<bean id="adsDAO" class="com.myshopnshare.core.dao.AdsDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="permissionVisibilityDAO" class="com.myshopnshare.core.dao.PermissionVisibilityDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+
+	<bean id="contactDAO" class="com.myshopnshare.core.dao.ContactDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>			
+
+	<bean id="journalDAO" class="com.myshopnshare.core.dao.JournalDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	<bean id="journalVisibilityDAO" class="com.myshopnshare.core.dao.JournalVisibilityDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>			
+			
+	<bean id="commercialDAO" class="com.myshopnshare.core.dao.CommercialDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>			
+	<bean id="cartItemDAO" class="com.myshopnshare.core.dao.CartItemDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>		
+	<bean id="institutionDAO" class="com.myshopnshare.core.dao.InstitutionDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	<bean id="merchantDAO" class="com.myshopnshare.core.dao.MerchantDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>		
+	<bean id="employerDAO" class="com.myshopnshare.core.dao.EmployerDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>		
+	<bean id="eventVisibilityDAO" class="com.myshopnshare.core.dao.EventVisibilityDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>		
+	<bean id="pointItemDAO" class="com.myshopnshare.core.dao.PointItemDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>											
+</beans>

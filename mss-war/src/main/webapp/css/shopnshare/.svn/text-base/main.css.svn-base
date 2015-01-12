@@ -1,0 +1,97 @@
+
+/** Make the accordion title cell blank **/
+#west-panel .x-panel-header-text {
+	color: #FFFFFF;
+}
+
+#east-panel .x-panel-header-text {
+	color: #FFFFFF;
+}
+
+#ct-wrap {
+	text-align: center;
+}
+
+#ct {
+	text-align: left;
+	margin: auto;
+}
+
+#north,#navlinks,#south,#toolbar {
+	float: none;
+	clear: both;
+}
+
+#west {
+	float: left;
+	clear: left;
+	width: 180px;
+	//color: white;
+	//background-color: #FF7900;	
+	position: absolute;
+	top: 70px;
+	left: 30px;	
+}
+
+#center {
+	float: left;
+	background-color: #FBB36B;
+}
+
+#east {
+	float: right;
+	clear: right;
+	width: 180px;
+	//color: white;
+	//background-color: #FF7900;	
+	position: absolute;
+	top: 70px;
+	left: 820px;		
+}
+
+#west li, #east li {
+	list-style-type: none;
+}
+
+#ct {
+	width: 940px;
+}
+
+
+#center {
+	width: 580px;
+}
+
+#navlinks,#north {
+	height: 50px;
+}
+
+#west, #east {
+	height: 400px;
+}
+
+#south {
+	width: 100%;
+	height: 30px;
+	vertical-align: middle;
+	position: absolute;
+	top: 530px;
+	left: 0px;
+}
+
+#toolbar {
+	height: 30px;
+	//background: #FFFFCC;
+	text-align: center;
+	vertical-align: middle;
+	position: absolute;
+	top: 500px;
+	left: 500px;
+}
+
+#center {
+	background: #FFFFCC;
+	position: absolute;
+	top: 70px;
+	left: 220px;
+}

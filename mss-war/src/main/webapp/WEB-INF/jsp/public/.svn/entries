@@ -1,0 +1,67 @@
+8
+
+dir
+68
+http://76.91.160.2:8183/svn/meetme/meetme.war/WEB-INF/jsp/public
+http://76.91.160.2:8183/svn
+
+
+
+2008-12-30T04:31:40.630000Z
+34
+kim
+
+
+svn:special svn:externals svn:needs-lock
+
+soap
+dir
+
+home.jsp
+file
+82
+
+
+
+2009-01-17T03:45:00.984375Z
+a78f6aea516362379439e407086ae1c6
+2009-01-21T09:00:28.642000Z
+82
+kim
+
+friends-images.jsp
+file
+82
+
+
+
+2009-01-17T03:45:00.765625Z
+d694d5b458cba455de06bc8029e76728
+2009-01-21T09:00:28.642000Z
+82
+kim
+
+friends-images2.jsp
+file
+82
+
+
+
+2009-01-17T03:45:00.937500Z
+374d016eec4f1b8bb115a85900d9a148
+2009-01-21T09:00:28.642000Z
+82
+kim
+
+toolbar.jsp
+file
+82
+
+
+
+2009-01-19T02:03:16.000000Z
+eef4aa3909d1a35b8f6eb64397e9c7a3
+2009-01-21T09:00:28.642000Z
+82
+kim
+

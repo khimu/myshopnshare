@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans 
+	xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util" 
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+		http://www.springframework.org/schema/util 
+		http://www.springframework.org/schema/util/spring-util-2.0.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-2.5.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- blank application-context-*.xml file -->
+	<!--
+	<bean id="mySqlDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost/zepled" />
+        <property name="username" value="root" />
+        <property name="password" value="msql" />
+    </bean>
+    -->
+
+    <bean id="messageSource"
+        class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>bundles/messaggi</value>
+                <!-- other bundles here -->
+            </list>
+        </property>
+    </bean>    
+
+    <!-- Local DataSource that works in any environment -->
+	<!--bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="org.postgresql.Driver"/>
+		<property name="jdbcUrl" value="jdbc:postgresql://91.205.172.208:5432/khimung_myshopnshare8878"/>
+		<property name="user" value="khimung_admin"/>
+		<property name="password" value="*7zt"/>
+	</bean-->	
+
+
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" >
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/myshopnshare8878" />
+        <property name="user" value="root" />
+        <property name="password" value="root" />
+    </bean>
+
+    <bean id="hibernateProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="properties">
+            <props>
+                <!--prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop-->
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                
+                <!--<prop key="hibernate.hbm2ddl.auto">update</prop>-->
+                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.flushMode">auto</prop>
+                <prop key="hibernate.max_fetch_depth">1</prop>
+                <prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+                <prop key="hibernate.c3p0.min_size">10</prop>
+                <prop key="hibernate.c3p0.max_size">500</prop>
+                <prop key="hibernate.c3p0.timeout">0</prop>
+                <prop key="hibernate.c3p0.max_statements">1000</prop>
+                <prop key="hibernate.c3p0.idle_test_period">3000</prop>
+                <!--<prop key="hibernate.cache.provider_class">org.hibernate.cache.HashtableCacheProvider</prop>-->
+                <prop key="hibernate.cache.use_query_cache">true</prop>
+                <prop key="hibernate.cache.use_second_level_cache">true</prop>
+                <!--<prop key="hibernate.use_outer_join">true</prop>-->
+                <prop key="hibernate.generate_statistics">true</prop>
+           </props>
+        </property>
+    </bean>
+    
+    <bean id="sessionFactory" class="net.java.dev.springannotation.hibernate.AutomaticAnnotationSessionFactoryBean">
+		<!--<property name="configLocation" value="/WEB-INF/hibernate.cfg.xml" />-->
+        <property name="dataSource" ref="dataSource"/>
+        <property name="hibernateProperties" ref="hibernateProperties"/>
+		<property name="annotatedClasses">
+			<list>
+				<value>com.myshopnshare.core.domain.PageViewed</value>
+				<value>com.myshopnshare.core.domain.Ads</value>
+				<value>com.myshopnshare.core.domain.Address</value>
+				<value>com.myshopnshare.core.domain.Authorities</value>
+				<value>com.myshopnshare.core.domain.Bank</value>
+				<value>com.myshopnshare.core.domain.Comment</value>
+				<value>com.myshopnshare.core.domain.ConfirmEmail</value>
+				<value>com.myshopnshare.core.domain.CreditCard</value>
+				<value>com.myshopnshare.core.domain.EmailAddress</value>
+				<value>com.myshopnshare.core.domain.Face</value>
+				<value>com.myshopnshare.core.domain.Friend</value>
+				<value>com.myshopnshare.core.domain.Headline</value>
+				<value>com.myshopnshare.core.domain.Item</value>
+				<value>com.myshopnshare.core.domain.ItemCategory</value>
+				<value>com.myshopnshare.core.domain.ItemOrderDetail</value>
+				<value>com.myshopnshare.core.domain.ItemShippingDetail</value>
+				<value>com.myshopnshare.core.domain.ItemVisibilityDomain</value>
+				<value>com.myshopnshare.core.domain.VendorItemVisibilityDomain</value>
+				<value>com.myshopnshare.core.domain.News</value>
+				<value>com.myshopnshare.core.domain.NewsComment</value>
+				<value>com.myshopnshare.core.domain.OrderDetail</value>
+				<value>com.myshopnshare.core.domain.Payment</value>
+				<value>com.myshopnshare.core.domain.Permission</value>
+				<value>com.myshopnshare.core.domain.Person</value>
+				<value>com.myshopnshare.core.domain.PersonVisibilityDomain</value>
+				<value>com.myshopnshare.core.domain.Phone</value>
+				<value>com.myshopnshare.core.domain.Photo</value>
+				<value>com.myshopnshare.core.domain.PhotoCategory</value>
+				<value>com.myshopnshare.core.domain.RequestFriend</value>
+				<value>com.myshopnshare.core.domain.Role</value>
+				<value>com.myshopnshare.core.domain.Scribble</value>
+				<value>com.myshopnshare.core.domain.AdsTag</value>
+				<value>com.myshopnshare.core.domain.ItemTag</value>
+				<value>com.myshopnshare.core.domain.PersonTag</value>
+				<value>com.myshopnshare.core.domain.Users</value>
+				<value>com.myshopnshare.core.domain.Vendor</value>
+				<value>com.myshopnshare.core.domain.VendorItem</value>
+				<value>com.myshopnshare.core.domain.NewsVisibilityDomain</value>
+				<value>com.myshopnshare.core.domain.ScribbleVisibilityDomain</value>
+				<value>com.myshopnshare.core.domain.VisibilityDomain</value>
+				<value>com.myshopnshare.core.domain.ShoppingCart</value>
+				<value>com.myshopnshare.core.domain.Events</value>
+				<value>com.myshopnshare.core.domain.PermissionVisibility</value>
+				<value>com.myshopnshare.core.domain.Commercial</value>
+				<value>com.myshopnshare.core.domain.CommercialTag</value>
+				<value>com.myshopnshare.core.domain.FavoriteAd</value>
+				<value>com.myshopnshare.core.domain.Contact</value>
+				<value>com.myshopnshare.core.domain.ScribbleTag</value>
+				<value>com.myshopnshare.core.domain.JournalTag</value>
+				<value>com.myshopnshare.core.domain.Journal</value>
+				<value>com.myshopnshare.core.domain.JournalVisibility</value>
+				<value>com.myshopnshare.core.domain.CartItem</value>
+				<value>com.myshopnshare.core.domain.Education</value>
+				<value>com.myshopnshare.core.domain.Employer</value>
+				<value>com.myshopnshare.core.domain.Profile</value>
+				<value>com.myshopnshare.core.domain.Institution</value>
+				<value>com.myshopnshare.core.domain.Employment</value>
+				<value>com.myshopnshare.core.domain.Merchant</value>
+				<value>com.myshopnshare.core.domain.Customize</value>
+				<value>com.myshopnshare.core.domain.EventVisibility</value>
+				<value>com.myshopnshare.core.domain.EventTag</value>
+				<value>com.myshopnshare.core.domain.Rating</value>
+				<value>com.myshopnshare.core.domain.FriendVisibility</value>
+				<value>com.myshopnshare.core.domain.PointItem</value>
+				<value>com.myshopnshare.core.domain.RewardCart</value>
+				<value>com.myshopnshare.core.domain.PointItemOrderDetail</value>
+				<value>com.myshopnshare.core.domain.AcceptPerson</value>
+				<value>com.myshopnshare.core.domain.ConsideringPerson</value>
+				<value>com.myshopnshare.core.domain.DeclinePerson</value>
+				<value>com.myshopnshare.core.domain.GuestPerson</value>
+				<value>com.myshopnshare.core.domain.Counter</value>
+				<value>com.myshopnshare.core.domain.IpAddress</value>
+				<value>com.myshopnshare.core.domain.EventsComment</value>
+				<value>com.myshopnshare.core.domain.PermissionPermissionVisibility</value>
+				<value>com.myshopnshare.core.domain.PermissionVisibilityPerson</value>
+				<value>com.myshopnshare.core.domain.GroupPerson</value>
+				<value>com.myshopnshare.core.domain.VisibilityDomainPerson</value>
+				<value>com.myshopnshare.core.domain.ItemRating</value>
+				<value>com.myshopnshare.core.domain.Advice</value>
+				<value>com.myshopnshare.core.domain.Balance</value>
+				<value>com.myshopnshare.core.domain.LineItemDetail</value>
+				<value>com.myshopnshare.core.domain.Vote</value>
+			</list>
+		</property>
+    </bean>
+
+    <bean id="aHibernateEventListener" class="com.myshopnshare.core.audit.HibernateEventListener"/>
+
+    <!-- Transaction manager for a single Hibernate SessionFactory (alternative to JTA) -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory">
+            <ref local="sessionFactory"/>
+        </property>
+    </bean>    
+	
+	<tx:annotation-driven />
+
+	<context:mbean-export/>
+	
+	<context:annotation-config/>
+
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />	
+
+	<!-- Hibernate's JMX statistics service -->
+	<!--bean name="myshopnshare:type=HibernateStatistics" class="org.hibernate.jmx.StatisticsService" autowire="byName"/-->
+
+</beans>

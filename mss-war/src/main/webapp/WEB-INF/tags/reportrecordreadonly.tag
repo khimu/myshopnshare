@@ -1,0 +1,1 @@
+<%@ tag isELIgnored="false" %><%@ attribute name="primaryKey" required="true" rtexprvalue="true" %><%@ attribute name="records" required="true" rtexprvalue="true" %><%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%><tr><c:forTokens items="<%=records%>" delims="|" var="record"><td>${record}</td></c:forTokens></tr>

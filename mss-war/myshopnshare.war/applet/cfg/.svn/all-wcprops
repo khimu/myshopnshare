@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/2/trunk/myshopnshare.war/applet/cfg
+END
+jupload.redirect.config
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/2/trunk/myshopnshare.war/applet/cfg/jupload.redirect.config
+END
+jupload.default.config
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/2/trunk/myshopnshare.war/applet/cfg/jupload.default.config
+END
+jupload.demo.config
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/2/trunk/myshopnshare.war/applet/cfg/jupload.demo.config
+END
+jupload.put.config
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/2/trunk/myshopnshare.war/applet/cfg/jupload.put.config
+END
+jupload.webdav.config
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/2/trunk/myshopnshare.war/applet/cfg/jupload.webdav.config
+END

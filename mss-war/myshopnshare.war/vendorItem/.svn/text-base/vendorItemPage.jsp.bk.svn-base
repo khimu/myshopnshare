@@ -1,0 +1,98 @@
+<%@ include file="/WEB-INF/jsp/includes.jsp" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="sns" %>
+
+	<script type="text/javascript" src="/js/jquery.overlay-0.14.js">
+	<link rel="stylesheet" media="screen,projection" type="text/css" href="/css/overlay.css" />
+		
+		
+<script type="text/javascript">	
+
+	function displayMoreDetails(recordId){
+		$.ajax( {
+			type :"post",
+			url :"/public/vendorItemPage.do",
+			data: {method: 'view', itemId: recordId},
+			success : function(data) {
+				$('#user-item-page').html(data);
+			}
+		});	
+	}		
+
+</script>
+
+<div id="user-item-page">
+	<div id="vendor-item-back-page" class="item-inner-wrap"><a href="#" onclick="viewItemDetail(${item.id})"><img src="/images/buttons/backred.png" /></a></div>	
+	<div style="position:relative;">
+		<div id="user-item-image" class="item-bg" style="float: left;">
+			<div class="item-header">
+				<div class="item-header-info">
+					<div style="position:relative;"><div style="float:left;">${item.serialNumber}</div><div><h3>${item.itemName} </h3></div></div>
+					<div style="position:relative;"><div style="float:left;">${item.title}</div> <div class="vendor-price"><h2>$${item.price}</h2></div></div>
+				</div>
+				<a href="#" onclick="showPhoto('${item.itemName}');">
+				<img src="../${item.thumbnail.path}" title="${item.itemName}" alt="${item.description}" />
+				</a>				
+				<c:choose>
+					<c:when test="${item.quantity == 0}">
+						<div class="errors"><b>Out of stock</b></div>
+					</c:when>	
+					<c:otherwise>
+						<div class="vendor-shopping-element" >
+							<div style="float: left;">Add this item to your shopping cart.</div>
+							<div id="show-buy-item" style="float: right;padding-right:10px;">							
+								<a href="javascript: void(0);" onclick="showBuyItem();"><img src="/images/insert_to_shopping_cart.png" width="20px" height="20px" title="Add To Cart" alt="Add To Cart" /></a>
+								<div id="buy-item-element" style="display:none;">
+									<form id="add-to-shopping-cart-item-form">
+										<input type="hidden" name="type" value="${item.type}" />
+										<input type="hidden" name="itemId" value="${item.id}" />
+										<div style="width: 2px;"><input type="text" name="quantity" value="1" size="1" /></div>
+									</form>
+									<div id="buy-item-button"><a style="color: #005500;" href="javascript: void(0);" onclick="buyItem();">Add</a></div>
+								</div>
+							</div>		
+						</div>					
+					</c:otherwise>		
+				</c:choose>
+			</div>
+		</div>
+		
+	<div id="user-item-description" class="item-information">
+		<div style="text-align:center;">
+			<div class="item-header-info"><h3>${item.subtitle}</h3></div>
+				<div style="height: 115pt;">
+					<p class="item-description">${item.description}</p>
+					<c:if test="${item.products}">
+						<c:if test="${item.rebateAmount > 0}"><div>Rebate <big>$${item.rebateAmount}</big> Off</div></c:if>
+						<c:if test="${item.refuberish}"><div>Referbished</div></c:if>
+						<c:if test="${item.used}"><div>Used</div></c:if>
+						<c:if test="${item.clearancePercentage > 0}"><div>Clearance <big>${item.clearancePercentage}%</big> Off</div></c:if>
+					</c:if>
+					<div id="buy-message" style="color:#CCC;">
+					</div>				
+				</div>
+				<div style="padding:5px; height: 20pt; float: right; width: 200px;">
+					<div style="position:relative; text-align:right;">
+						<div class="item-logistics">Shipping</div> <div>$${item.shipping} </div>
+						<div class="item-logistics">Tax</div> <div>$${item.tax}</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div class="item-tags">
+			 			<p>
+			 			Tags: &nbsp;&nbsp;
+						<c:forEach items="${item.tags}" var="tag">
+			 				${tag.tag}
+						</c:forEach>
+						</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div style="display:none;" id="item-overlay">  
+		<img src="../${item.glimpse.path}" title="${item.itemName}" alt="${item.description}" />
+	</div>	
+	<div id="vendor-item-all-comments" style="clear:both;background-color:#FFF;width:720px;">
+		<jsp:include page="../item/publicItemComments.jsp"></jsp:include>
+	</div>
+
+</div>

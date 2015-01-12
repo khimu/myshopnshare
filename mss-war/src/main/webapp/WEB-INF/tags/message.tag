@@ -1,0 +1,1 @@
+<%@ tag isELIgnored="false" %><%@ attribute name="message" required="true" rtexprvalue="true" %><%@ attribute name="enteredDate" required="true" rtexprvalue="true" %><div class="headline"><div style="position: relative;">${message}</div><div style="clear: both;">${enteredDate}</div></div>

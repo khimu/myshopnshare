@@ -1,0 +1,81 @@
+/**
+For form grid
+**/
+
+.formGrid
+{
+	background: #EEEEEE;
+	padding: 20px;
+	width: 720px;
+	clear: both;
+	
+}
+.formGridTitleBar
+{
+	background: #E1E1E1;
+	border: 1px solid #B4B4B4;
+	display: block;
+	height: 24px;
+	padding-left: 16px;
+}
+.formGridTitle
+{
+	float: left;
+	display: block;
+	FONT: bold 12px Arial, Helvetica, sans-serif; 
+	COLOR: #000000;
+	padding-top: 4px;
+}
+
+.formGridTitleBar label
+{
+	padding-top: 4px;
+	padding-right: 4px;
+	float: right;
+	display: block;
+	font-size: 11px;
+	width: 120px;
+	FONT: 11px Arial, Helvetica, sans-serif; 
+	COLOR: #000000;
+}
+.formGridTitleBar input
+{
+	margin:0;
+	display:inline;
+}
+.formGridContent
+{
+	background: #FFFFFF;
+	padding: 4px;
+	
+}
+.formGridContent:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+.formGridContent br {
+	clear:left;
+}
+
+.formGridContent label
+{
+	margin-top: 4px;
+	font-size: 11px;
+}
+.formGridContent 
+{
+	padding-bottom: 10px;
+}
+.field {
+	float: left;
+}
+input.count {
+	width: 40px;
+}
+#updateGridsize {
+	width: 40px;
+}
+

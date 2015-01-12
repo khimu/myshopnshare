@@ -1,0 +1,228 @@
+<%@ include file="/WEB-INF/jsp/includes.jsp"%>
+
+<script type="text/javascript">
+	function viewPublicPointItemDetail(itemId){
+		$.ajax( {
+			type :"post",
+			url :"/public/searchPoints.do",
+			data: {method: 'get', itemId: itemId},
+			dataType: 'html',
+			success : function(data) {
+				$('#center').hide();
+				$('#center-3').hide();
+				$('#center-2').show(data);
+	
+				$('#center-2').html(data);
+		    }
+		});				
+	}
+	
+	
+	function showPoints(vendorId){
+		$('#all-item-category-element').html('');
+		$('#center').hide();
+		$('#center-3').show();	
+		$.ajax( {
+			type :"post",
+			url :"/public/searchPoints.do",
+			data: {method: 'view', vendorId: vendorId},
+			dataType: 'json',
+			success : function(json) {
+				$('#points-items-by-category').html('');
+				$.each(json.items, function(i, item) {
+					$('#points-items-by-category').append(
+							'<sns:rewardsitems itemName="' + item.itemName + '" primaryKey="' + item.id + '" caption="' + item.caption
+							+ '" description="' + item.description + '" icon="'
+							+ item.icon + '" glimpse="' + item.glimpse
+							+ '" />');
+					
+				}); 
+				
+				$("a[rel^='prettyPhoto']").prettyPhoto({showTitle:true});
+		    }
+		});				
+	}
+	
+	function showOrders(){
+		$.ajax( {
+			type :"post",
+			url :"/secure/orders.do",
+			data: {method: 'view'},
+			dataType: 'html',
+			success : function(data) {
+				$('#center-2').hide();
+				$('#center-3').hide();
+				$('#center').show();
+				$('#center').html(data);
+		    }
+		});				
+	}
+	
+	function showBuys(){
+		$.ajax( {
+			type :"post",
+			url :"/secure/buys.do",
+			data: {method: 'view'},
+			success : function(data) {
+				$('#center-2').hide();
+				$('#center-3').hide();
+				$('#center').show();
+				$('#center').html(data);
+		    }
+		});				
+	}
+	
+	function showSells(){
+		$.ajax( {
+			type :"post",
+			url :"/secure/sells.do",
+			data: {method: 'view'},
+			success : function(data) {
+				$('#center-2').hide();
+				$('#center-3').hide();
+				$('#center').show();
+				$('#center').html(data);
+		    }
+		});				
+	}	
+	$(function() {
+			$('#events-calendar').DatePicker({
+				flat: true,
+				format:'m/d/Y',
+				starts: 1,
+				position: 'r',
+				date: '',
+				current: '',
+				calendars: 1,
+				onChange: function(formated, dates){
+				 $.ajax({  
+				       type: "post",  
+				       url: "/secure/events.do",
+				       data: {method: 'view', startDate: formated, personId: '${person.id}'},
+				       success: function(data){
+							$('#center').html(data);
+							$('#events-header h3').html("Events on " + formated);
+				       }
+				     });				
+				}
+			});
+			$('#view-all-events').click(function(){
+				 $.ajax({  
+				       type: "post",  
+				       url: "/secure/events.do",
+				       data: {method: 'all', personId: '${person.id}'},
+				       success: function(data){  
+							$('#center').html(data);
+				       }
+				 });
+			});
+				$('#show-events-form').click(function(){
+					 $.ajax({  
+					       type: "post",  
+					       url: "/secure/events.do",
+					       data: {method: 'form'},
+					       success: function(data){  
+								$('#center').html(data);
+					       }
+					 });
+				});				
+			});		
+</script>
+
+<div id="col" class="noprint">
+    <div id="col-in">
+
+    <h3><span>About Me</span></h3>
+
+    <div id="about-me">
+        <img src="../${person.defaultFace.thumbnail.path}" id="me" alt="Yeah, it's me!" />
+		<div class="spacer"></div>
+        Age: ${person.age}<br />
+        <c:if test="${not empty person.primaryAddress}">
+	        <c:if test="${not empty person.primaryAddress.stateOrProvince}">
+	        	${person.primaryAddress.stateOrProvince},
+	        </c:if>
+	        ${person.primaryAddress.country}<br />
+        </c:if>
+        AIM: <c:if test="${not empty person.profile.aim}"><a href="aim:GoIM?screenname=screenname"><img src="http://api.oscar.aol.com/presence/icon?k=mi15Xbwp687KXwRc&t=${person.profile.aim}"/>${person.profile.aim}</a></c:if><br />
+        Birthday: <fmt:formatDate value="${person.birthday}" pattern="MM/dd" />
+      <div class="clear"></div>
+      <div style="background-color: #FFF;padding:5px;">
+	      <a href="#TB_inline?height=500&width=600&inlineId=all-scribbles&model=true" class="thickbox"><span>${person.unreadScribbles}</span></a> New Scribbles
+	      <div class="clear"></div>
+	      <a href="#TB_inline?height=500&width=600&inlineId=all-journals&model=true" class="thickbox"><span>${fn:length(person.journals)}</span></a> Journal Entries
+      </div>
+    </div> 
+
+	<h3><span>
+			RATING
+			<div id="rating-id" class="rating">
+				<img alt="poor rating" id="rating0" onclick="submitStars(0);  return false;" src="/images/gr_orange_star_active.gif" title="Poor Review" width="15" height="15">
+				<img alt="poor rating" id="rating1" onclick="submitStars(1);  return false;" src="/images/gr_orange_star_active.gif" title="Below Average" width="15" height="15">
+				<img alt="poor rating" id="rating2" onclick="submitStars(2);  return false;" src="/images/gr_orange_star_active.gif" title="Average" width="15" height="15">
+				<img alt="poor rating" id="rating3" onclick="submitStars(3);  return false;" src="/images/gr_orange_star_active.gif" title="Good" width="15" height="15">
+				<img alt="poor rating" id="rating4" onclick="submitStars(4);  return false;" src="/images/gr_orange_star_active.gif" title="Excellent" width="15" height="15">			
+			</div>	
+	</span></h3>      
+
+    <hr class="noscreen" />
+
+    <h3><span>Events Calendar</span></h3>
+    
+    <ul id="archive">
+    	<li><a href="#">Hosting ${fn:length(person.events)} Events</a></li>
+    	<li><a href="#">Invited To ${fn:length(person.guests)} Events</a></li>
+       	<li><a href="#">Attending ${fn:length(person.accepts)} Events</a></li>
+       	<li><a href="#">Declined ${fn:length(person.declines)} Events</a></li>
+       	<li><a href="#">Considering ${fn:length(person.considerings)} Events</a></li>
+    </ul>
+    
+	<div class="left-align">
+	<a href="#events-page" id="show-events-form">
+	[New Event]</a> 
+	&nbsp;&nbsp; <a href="#events-header" id="view-all-events">[View All]</a>
+	</div>
+
+	<div id="events-calendar" style="margin:0px;"> </div>
+	
+    <hr class="noscreen" />
+
+    <h3><span>Management Links</span></h3>
+
+    <ul id="archive">
+    	<c:choose>
+    	<c:when test="${person.subscribed}">
+       	<li><a href="#" onclick="unsubscribe();">Un-subscribe</a></li>
+       	</c:when>
+       	<c:otherwise>
+       	<li><a href="#" onclick="subscribe();">subscribe</a></li>
+       	</c:otherwise>
+       	</c:choose>
+       <li><a href="#" onclick="showBuys();">Buys</a></li>
+       <li><a href="#" onclick="showSells();">Sells</a></li>
+    </ul>
+
+    <hr class="noscreen" />	
+    	
+	<%@ include file="../common/bank.jsp" %>
+			
+    <hr class="noscreen" />
+
+    <h3><span><a href="/secure/manageFriends.do?method=all&personId=${person.id}">Friends</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${fn:length(person.friends)}</span></h3>
+    <%@ include file="../friends/friends.jsp" %>
+	
+	<hr class="noscreen" />
+	
+	<jsp:include page="../ads/ads.jsp"></jsp:include>
+	
+	<hr class="noscreen" />
+	
+    </div> 
+</div> 
+
+
+
+
+
+		
+

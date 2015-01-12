@@ -1,0 +1,60 @@
+.fisheye {
+	text-align: center;
+	height: 30px;
+	position: relative;
+}
+
+a.fisheyeItem {
+	text-align: center;
+	color: #FFF;
+	font-weight: bold;
+	text-decoration: none;
+	width: 20px;
+	position: absolute;
+	display: block;
+	top: 5px;
+}
+
+a.fisheyeItem2 {
+	text-align: center;
+	color: #FFF;
+	font-weight: bold;
+	text-decoration: none;
+	width: 20px;
+	position: absolute;
+	display: block;
+	bottom: 5px;
+}
+
+.fisheyeItem img {
+	border: none;
+	margin: 0 auto 5px auto;
+}
+
+.fisheyeItem2 img {
+	border: none;
+	margin: 5px auto 0 auto;
+	width: 100%;
+}
+
+.fisheyeItem span,.fisheyeItem2 span {
+	color: #FFF;
+	display: none;
+	positon: absolute;
+}
+
+.fisheyeContainter {
+	height: 30px;
+	position: absolute;
+}
+
+#fisheye2 {
+	position: absolute;
+	width: 100%;
+	bottom: 0px;
+}
+
+#fisheyeItem a:hover img {
+	width: 50px;
+}
+

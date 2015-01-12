@@ -1,0 +1,341 @@
+<%@ include file="/WEB-INF/jsp/includes.jsp"%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>MY SHOP N SHARE</title>
+	
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="rewards points, rewards, business, self promoting, meeting, joining, friends, connecting, linking, union, unite, united, bonding, social network, journals, scribbles, journal, advice, recommendation, recommend, wish list, scribble, social events, social calendars, networking, social shopping network, shop, marketing, advertising, advertise, promoting, selling" />
+        <meta name="keywords" content="A social shopping network that allows members to sell services and items and grow their business through recommendations from previous clients/customers.  Allows users to get advice, recommend items, show wish list, and bought items." />		
+	<link href="/css/shopnshare/style.css" rel="stylesheet" type="text/css" />
+	<link href="/css/shopnshare/login.css" media="screen" rel="stylesheet" type="text/css" />
+
+		<script type="text/javascript" src="/js/shopnshare/FormCheck.js"></script>
+
+		<script type="text/javascript" src="/js/jquery-1.2.6.js"></script>
+		<script src="/js/jquery.watermarkinput.js" type="text/javascript"></script>		
+				 
+		<link rel="stylesheet" type="text/css" href="/css/shopnshare/fisheye.css" />	
+		<script type="text/javascript" src="/js/jquery/interface/compressed/iutil.js"></script>
+		<script type="text/javascript" src="/js/jquery/interface/compressed/fisheye.js"></script>	
+		<script type="text/javascript" src="/js/jquery.cycle.all.min.js"></script>
+		
+		<script type="text/javascript" src="/js/jquery.media.js"></script>
+		
+     	<script type='text/javascript' src='/js/boxy-0.1.4/jquery.boxy.js'></script>
+      	<link rel="stylesheet" href="/js/boxy-0.1.4/boxy.css" type="text/css" />		
+		
+		<link rel="stylesheet" href="/js/prettygallery/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+		<script src="/js/prettygallery/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+
+		<link rel="stylesheet" type="text/css" media="screen" href="/js/validation/jquery-validate/css/screen.css" />	
+		<script src="/js/validation/jquery-validate/jquery.validate.js" type="text/javascript"></script>
+		<script src="/js/validation/jquery-validate/lib/jquery.form.js" type="text/javascript"></script>		
+
+		<script type="text/javascript" src="/js/ajaxfileupload.js"></script>
+		
+		<script type="text/javascript" src="/js/jquery/interface/compressed/fisheye.js"></script>			
+		<script type="text/javascript" src="/js/jquery/interface/compressed/iutil.js"></script>
+	
+		<script src="/js/shopnshare/fisheye.js" type="text/javascript"></script>		
+		
+		<link href="/css/thickbox.css" media="screen" rel="stylesheet" type="text/css" />		
+		<script type="text/javascript" src="/js/thickbox-compressed.js"></script>		
+
+		<script type="text/javascript" src="/js/ui.core.js"></script>
+		<link type="text/css" href="/css/flora.tabs.css" rel="stylesheet" />
+		<script type="text/javascript" src="/js/ui.tabs.js"></script>
+		
+		<style type="text/css">@import "/css/jquery.datepick.css";</style> 
+		<script type="text/javascript" src="/js/jquery.datepick.js"></script>
+
+	<script type="text/javascript" src="/js/jquery.overlay-0.14.js" />
+	
+	
+<style type="text/css">
+.warning {
+	color: red;
+}
+
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("a[rel^='prettyPhoto']").prettyPhoto();
+	});
+	
+	jQuery( function() {
+		
+		
+		$('#fragment-2').click(function(){
+			$('#forgotUsername').hide();
+			$('#forgotPassword').show();
+		});
+
+		$('#fragment-3').click(function(){
+			$('#forgotPassword').hide();
+			$('#forgotUsername').show();
+		});
+
+		$('#passwordSubmit').click(function(){
+			jQuery("#forgotPasswordForm").validate( {
+				submitHandler : function(form) {
+					jQuery(form).ajaxSubmit( {
+						target : "#forgotPassword"
+					});
+				}
+			});
+		});
+		
+	});
+</script>
+
+<script type="text/javascript">
+	jQuery( function() {
+		
+		$('#forgotUsername').click(function(){
+			jQuery("#forgotUsernameForm").validate( {
+				submitHandler : function(form) {
+					jQuery(form).ajaxSubmit( {
+						target : "#forgotUsername"
+					});
+				}
+			});
+		});
+	});
+</script>
+
+<script type="text/javascript">
+	jQuery( function() {
+		// show a simple loading indicator
+		var loader = jQuery(
+				'<div id="loader"><img src="/images/loading.gif" alt="loading..." /></div>')
+				.css( {
+					position :"relative",
+					top :"1em",
+					left :"25em"
+				}).appendTo("body").hide();
+		jQuery().ajaxStart( function() {
+			loader.show();
+		}).ajaxStop( function() {
+			loader.hide();
+		}).ajaxError( function(a, b, e) {
+			throw e;
+		});
+	});
+
+</script>
+
+</head>
+
+<body style="background-image: url(/images/REDLOGO.png); background-repeat: no-repeat;">
+<div style="position:relative;">
+	<div style="float:left"><img src="/images/redlogo2.png" alt="" usemap="#REDLOGO" style="border-style:none" /></div>
+	<div style="float:left;">
+		<h3>Boutiques</h3>
+		<div style="width:250px;position:relative;">
+		<c:forEach items="${merchants}" var="merchant">
+			<span style="float:left;width:100px;padding:10px;">
+				<a href="/public/merchant.do?friendId=${merchant.id}">${merchant.alias}</a>
+				<div style="height:75px;"><a href="${merchant.defaultFace.glimpse.path}" rel="prettyPhoto[gallery]" title="${merchant.alias}" alt="${merchant.alias}"><img src="/${merchant.defaultFace.icon.path}" alt="${merchant.alias}" /></a></div>
+			</span>
+		</c:forEach>
+		</div>
+	</div>
+    <div style="float:left;">
+		<script type="text/javascript"><!--
+		google_ad_client = "pub-2178827339426285";
+		/* 160x600, created 5/18/09 */
+		google_ad_slot = "4798291882";
+		google_ad_width = 160;
+		google_ad_height = 600;
+		//-->
+		</script>
+		<script type="text/javascript"
+		src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+		</script>   
+    </div>	
+</div>
+<map id="REDLOGO" name="REDLOGO">
+<area shape="rect" alt="CELL PHONE ACCESSORIES" coords="28,2,122,65" href="/public/publicPage.do?searchString=cellphone accessories" title="CELL PHONE ACCESSORIES" target="_SELF" />
+<area shape="rect" alt="MEN ACCESSORIES" coords="28,70,122,140" href="/public/publicPage.do?searchString=men accessories" title="MEN ACCESSORIES"  target="_SELF" />
+<area shape="rect" alt="BABIES" coords="27,143,124,227" href="/public/publicPage.do?searchString=babies"  title="BABIES" target="_SELF" />
+<area shape="rect" alt="GLASSES" coords="27,227,124,285" href="/public/publicPage.do?searchString=glasses"  title="GLASSES" target="_SELF" />
+<area shape="rect" alt="JEWLERY" coords="27,288,125,360" href="/public/publicPage.do?searchString=jewelry"  title="JEWELRY" target="_SELF" />
+<area shape="rect" alt="BOYS" coords="27,358,125,421" href="/public/publicPage.do?searchString=boys" title="BOYS"  target="_SELF" />
+<area shape="rect" alt="CAMERA" coords="27,424,125,494" href="/public/publicPage.do?searchString=camera" title="CAMERA"  target="_SELF" />
+<area shape="rect" alt="HOME IMPROVEMENT" coords="27,495,125,556" href="/public/publicPage.do?searchString=home improvement" title="HOME IMPROVEMENT"  target="_SELF" />
+<area shape="rect" alt="BEDROOM" coords="27,556,125,630" href="/public/publicPage.do?searchString=bedroom" title="BEDROOM"  target="_SELF" />
+<area shape="rect" alt="LIVING ROOM" coords="26,629,125,700" href="/public/publicPage.do?searchString=livingroom" title="LIVINGROOM"  target="_SELF" />
+<area shape="rect" alt="TRAVEL" coords="26,702,125,757" href="/public/publicPage.do?searchString=travel" title="TRAVEL"  target="_SELF" />
+<area shape="rect" alt="RIMS" coords="727,1,827,60" href="/public/publicPage.do?searchString=rims" title="RIMS"  target="_SELF" />
+<area shape="rect" alt="OUTDOORS" coords="728,61,827,135" href="/public/publicPage.do?searchString=outdoors" title="OUTDOORS"  target="_SELF" />
+<area shape="rect" alt="CAR EQUIPMENTS" coords="729,136,828,210" href="/public/publicPage.do?searchString=car equipments" title="CAR EQUIPMENTS"  target="_SELF" />
+<area shape="rect" alt="TOYS" coords="727,210,827,278" href="/public/publicPage.do?searchString=toys" title="TOYS"  target="_SELF" />
+<area shape="rect" alt="FURNITURE" coords="728,278,826,345" href="/public/publicPage.do?searchString=furnitures" title="FURNITURE"  target="_SELF" />
+<area shape="rect" alt="COMPUTERS" coords="728,344,826,441" href="/public/publicPage.do?searchString=computers" title="COMPUTERS"  target="_SELF" />
+<area shape="rect" alt="TIRES" coords="728,443,826,543" href="/public/publicPage.do?searchString=tires" title="TIRES"  target="_SELF" />
+<area shape="rect" alt="HEALTH AND FITNESS" coords="727,544,828,615" href="/public/publicPage.do?searchString=health and fitness" title="HEALTH AND FITNESS"  target="_SELF" />
+<area shape="rect" alt="SPORTS" coords="728,617,825,706" href="/public/publicPage.do?searchString=sports" title="SPORTS" target="_SELF" />
+<area shape="rect" alt="SHOES" coords="729,707,826,798" href="/public/publicPage.do?searchString=shoes" title="SHOES" target="_SELF" />
+<area shape="rect" alt="KITCHEN" coords="659,699,728,799" href="/public/publicPage.do?searchString=kitchen" title="KITCHEN" target="_SELF" />
+<area shape="rect" alt="REAL ESTATE" coords="460,701,560,799" href="/public/publicPage.do?searchString=real estate" title="REAL ESTATE" target="_SELF" />
+<area shape="rect" alt="YARD" coords="560,699,659,800" href="/public/publicPage.do?searchString=yard gardening" title="YARD" target="_SELF" />
+<area shape="rect" alt="SILVERWARE" coords="559,598,658,700" href="/public/publicPage.do?searchString=silverware" title="SILVERWARE" target="_SELF" />
+<area shape="rect" alt="RESTAURANTS" coords="360,702,460,800" href="/public/publicPage.do?searchString=restaurants" title="RESTAURANTS" target="_SELF" />
+<area shape="rect" alt="CARS" coords="226,700,358,800" href="/public/publicPage.do?searchString=cars" title="CARS" target="_SELF" />
+<area shape="rect" alt="CELLPHONES" coords="225,553,326,699" href="/public/publicPage.do?searchString=cellphones" title="CELLPHONES" target="_SELF" />
+<area shape="rect" alt="HOME ACCESSORIES" coords="126,702,225,800" href="/public/publicPage.do?searchString=home accessories" title="HOME ACCESSORIES"  target="_SELF" />
+<area shape="rect" alt="APPAREL" coords="393,576,483,607" href="/public/publicPage.do?searchString=apparel" title="APPAREL" target="_SELF" />
+<area shape="rect" alt="HOME" coords="393,607,483,640" href="/public/publicPage.do?searchString=apparel" title="HOME"  target="_SELF" />
+<area shape="rect" alt="BEAUTY" coords="394,640,482,675" href="/public/publicPage.do?searchString=beauty" title="BEAUTY"  target="_SELF" />
+<area shape="rect" alt="USA" coords="282,424,312,452" href="/public/publicPage.do?searchString=usa" title="USA" target="_self" />
+<area shape="rect" alt="SOUTH AMERICA" coords="325,498,366,528" href="/public/publicPage.do?searchString=south america" title="SOUTH AMERICA" target="_SELF" />
+<area shape="rect" alt="EUROPE" coords="412,420,438,443" href="/public/publicPage.do?searchString=europe" title="EUROPE" target="_SELF" />
+<area shape="rect" alt="MIDDLE EAST" coords="481,432,509,456" href="/public/publicPage.do?searchString=middle east" title="MIDDLE EAST" target="_SELF" />
+<area shape="rect" alt="CHINA" coords="529,421,568,448" href="/public/publicPage.do?searchString=china" title="CHINA" target="_SELF" />
+<area shape="rect" alt="INDONESIA" coords="567,510,603,537" href="/public/publicPage.do?searchString=indonesia" title="INDONESIA" target="_SELF" />
+<area shape="rect" alt="AFRICA" coords="433,467,460,509" href="/public/publicPage.do?searchString=africa" title="AFRICA" target="_SELF" />
+<area shape="rect" alt="INDIA" coords="499,455,523,476" href="/public/publicPage.do?searchString=india" title="INDIA" target="_SELF" />
+<area shape="rect" alt="MY SHOP N SHARE" coords="129,4,568,103" href="/secure/home.do" title="MY SHOP N SHARE" target="_SELF" />
+<area shape="default" nohref="nohref" alt="" />
+</map>
+<div style="position:absolute;top: 110px;left:410px; width:300px;">
+			<h1>Please Login!</h1>		
+			
+			<c:if test="${not empty accountInActive}">
+			<div class="errors">${accountInActive}</div>
+			</c:if>
+			
+			<form name="loginForm" class="cmxform" action="/j_spring_security_check" method="post">
+			<table cellpadding="3" style="border: 1px solid #FFF;">
+				<c:if test="${not empty param.login_error}">
+				<tbody id="login-box"  style="display: block;">
+				<tr>
+					<td colspan="2">
+						<div class="errors">Your login attempt
+						was not successful, try again.<br />
+						Reason: <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}" />.
+						</div>
+					</td>
+				</tr>
+				</tbody>
+				</c:if>
+				<tr>
+					<td><label for="j_username">Email</label></td>
+					<td><input id="j_username" name="j_username" title="Please enter your email address" class="required email" minlength="6" /></td>
+				</tr>
+				<tr>
+					<td><label for="j_password">Password</label></td>
+					<td><input type="password" name="j_password" id="j_password" class="required" minlength"5" /></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<p id="checkboxStyle" style="display: none;">
+							<input type="checkbox" id="cb"
+								name="_spring_security_remember_me"
+								checked="checked" /> 
+								<label for="_spring_security_remember_me">Stay logged in </label>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+							<input class="submit" type="submit" value="Login"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="#" id="fragment-2">Forgot Password </a>		
+					</td>
+					<td style="text-align:right;">
+						<a href="/register.do">Sign Up</a>			
+					</td>		
+				</tr>	
+			</table>
+			</form>
+			
+			<div id="forgotUsername" class="forgot-password">
+			<form id="forgotUsernameForm" name="forgotUsernameForm" method="POST" action="/public/retrieve.do?method=forgotUsername">
+			<table>
+					<tr>
+						<td colspan="2">
+							<div><h3>Your password will be sent to the email provided.</h3></div>
+							<div class="errors">${usernameMessage}</div>			
+						</td>
+					</tr>
+					<tr>
+						<td><label for="emailAddress" style="float: left; clear: both;">Login Email Address</label>
+						</td>
+						<td>
+						<input type="text" id="emailAddress" name="emailAddress"  size="30" maxlength="80" style="float: none;" />
+						<button name="submit" id="usernameSubmit"
+						type="submit">GO</button>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+						<button name="submit" id="usernameSubmit"
+						type="submit">GO</button>
+						</td>
+					</tr>
+			</table>
+			</form>
+			</div>
+			
+			<div id="forgotUsername" class="forgot-password">
+			<form id="forgotPasswordForm" name="forgotPasswordForm" action="/public/retrieve.do?method=forgotPassword" method="post">		
+			<table  id="forgotPassword" style="display: none;">
+					<tr>
+					<tr>
+						<td colspan="2">
+							<div><h3>Your password will be sent to the email provided.</h3></div>
+							<div class="errors">${passwordMessage}</div>			
+						</td>
+					</tr>
+					</tr>
+					<tr>
+						<td>
+						<div><h3>Your password will be sent to the email provided.</h3></div>
+						</td>
+						<td><input type="text" id="emailAddress" name="emailAddress" size="30" maxlength="80"  style="float: none; clear: both;" />
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<button name="submit" id="passwordSubmit"
+							type="submit">GO</button>
+						</td>
+					</tr>
+			</table>
+			</form>
+			</div>
+			<div style="padding:10px;margin:10px;">
+					You are visitor #
+					<big id="counter">${counter.count}</big>
+			</div>			
+		</div>
+		
+		<div style="position:absolute;top:800px;left:27px;width:500px;">					
+<script type="text/javascript"><!--
+google_ad_client = "pub-2178827339426285";
+/* 728x90, created 4/3/09 */
+google_ad_slot = "5531437381";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>	
+		</div>
+
+		<div class="clear"></div>
+		<div style="position:absolute;top:950px;left:27px;width:500px;">
+			<%@ include file="footer.jsp" %>
+		</div>	
+				
+
+	</body>
+</html>

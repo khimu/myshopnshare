@@ -1,0 +1,199 @@
+/**
+  * POSTAL-STYLE STYLE SHEETS (AS APPROVED BY THE INTERNET CHANNEL)
+  * For No Left Menu Bar
+  */
+.topMenuBar
+{
+	width:100%;
+	position: relative;
+	top: 1px;
+	height: 25px;
+	padding: 0;
+	margin: 0;
+	font-size: 0pt;
+	background-image: url('/govgrnds-example/images/top_bar3.gif');
+}
+.navBar
+{
+	width: 691px;
+	background-image: url('/govgrnds-example/images/top_nav1_long.gif');
+	height: 18px;
+	display: block;
+	position: relative;
+	left: 29px;
+	padding: 0;
+	top: 3px;
+}
+.navBar a
+{
+	background-image: url('/govgrnds-example/images/top_nav2.gif');
+	display: block;
+	float: right;
+	FONT: bold 11px Arial, Helvetica, sans-serif; 
+	COLOR: #003399;
+	height: 18px;
+	width: 263px;
+	text-align: center;
+}
+h1
+{
+	margin-top: 10px;
+	margin-bottom: 0;
+	margin-left: 44px;
+	padding: 0;	
+}
+.h1_text
+{
+	color: #000099;
+	font-family: "Arial Narrow", Arial, Helvetica, SansSerif;
+	font-size: 24px;
+	margin: 0;
+	padding: 0;
+}
+.bodyFrame
+{
+	margin-left: 44px;
+	width: 675px;
+	border: 2px solid #CCCCCC;
+	margin-bottom: 44px;
+	
+}
+.bodyContent
+{
+	padding-left: 24px;
+}
+h2
+{
+	margin-top: 0;
+	padding-left: 24px;
+	padding-top: 24px;
+}
+.h2_text
+{
+	color: #CC0000;
+	font-family: "Arial Narrow", Arial, Helvetica, SansSerif;
+	font-size: 19px;
+}
+p{
+	font-family: Arial, Helvetica, SansSerif;
+	color: #000000;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.topMenuBar
+{
+	width:100%;
+	position: relative;
+	top: 1px;
+	height: 25px;
+	padding: 0;
+	margin: 0;
+	font-size: 0pt;
+	background-image: url('/govgrnds-example/images/top_bar3.gif');
+}
+.navBar
+{
+	width: 691px;
+	background-image: url('/govgrnds-example/images/top_nav1_long.gif');
+	height: 18px;
+	display: block;
+	position: relative;
+	left: 29px;
+	padding: 0;
+	top: 3px;
+}
+.navBar a
+{
+	background-image: url('/govgrnds-example/images/top_nav2.gif');
+	display: block;
+	float: right;
+	FONT: bold 11px Arial, Helvetica, sans-serif; 
+	COLOR: #003399;
+	height: 18px;
+	width: 263px;
+	text-align: center;
+}
+h1
+{
+	margin-top: 10px;
+	margin-bottom: 0;
+	margin-left: 44px;
+	padding: 0;	
+}
+.h1_text
+{
+	color: #000099;
+	font-family: "Arial Narrow", Arial, Helvetica, SansSerif;
+	font-size: 24px;
+	margin: 0;
+	padding: 0;
+}
+.bodyFrame
+{
+	margin-left: 44px;
+	width: 675px;
+	border: 0;
+	margin-bottom: 44px;
+	/*background-image: url('/govgrnds-example/images/grey_diagonal2.gif');
+	background-repeat: no-repeat;
+	background-position: bottom right;*/
+}
+.bodyFrameTop
+{
+	border: 2px solid #CCCCCC;
+	border-bottom: 0;
+}
+.bodyFrameBottom
+{
+	background: #CCCCCC;
+	font-size: 0pt;
+	height: 11px;
+	background-image: url('/govgrnds-example/images/grey_diagonal2.gif');
+	background-repeat: no-repeat;
+	background-position: bottom right;
+}
+.bodyFrameBottomLine1
+{
+	background: #FFFFFF;
+	font-size:0pt;
+	height: 1px;
+}
+.bodyFrameBottomLine2
+{
+	font-size:0pt;
+	background-image: url('/govgrnds-example/images/bottom_grey.gif');
+	background-repeat: no-repeat;
+	height: 1px;
+	width: 668px;
+}
+.bodyContent
+{
+	padding-left: 24px;
+	padding-bottom: 24px;
+}
+/* This allows the floating contents of body content to stretch bodyContent */
+.bodyContent:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+h2
+{
+	margin-top: 0;
+	padding-left: 24px;
+	padding-top: 24px;
+}
+.breadcrumbs
+{
+	margin-left: 44px;
+	font-family: Arial, Helvetica, SansSerif;
+	color: #003399;
+	font-size: 10px;
+	font-weight: bold;
+	padding-bottom: 4px;
+}
+
+

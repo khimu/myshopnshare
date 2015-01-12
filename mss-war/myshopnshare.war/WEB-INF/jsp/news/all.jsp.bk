@@ -1,0 +1,60 @@
+<%@ include file="/WEB-INF/jsp/includes.jsp"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="sns" %>
+
+<script type="text/javascript" src="/js/jquery.tablesorter.js"></script> 
+
+<script type="text/javascript">
+
+	function getAllNews(method){
+		 $.ajax({  
+		       type: "POST",  
+		       url: "/secure/news.do",
+		       data: {method: method, personId: '${person.id}'},
+		       dataType: 'json', 
+		       success: function(json){  
+		    	   document.getElementById('news-box').innerHTML = '';
+			    	$.each(json.newzz, function(i,newz){
+				    	if(i == 10){return false;}
+						$('#news-box').append('<sns:newsdata personId="'+ ${person.id} + '" newsId="'+ newz.id + '" newsPersonId="' + newz.newsPersonId + '" enteredDate="' + newz.enteredDate + '">' + unescapeHTML(newz.message) + '</sns:newsdata>');
+						$('#news-box').append('<hr/>');
+
+			    	});
+		       } 
+		     });
+	}
+	
+	$(document).ready(function(){
+		// getAllNews('world');
+		
+		$('#all-news-options').change(function(){
+			/** LOADING SELECTED NEWS **/
+			var selected = $('#all-news-options :selected').val();
+			var filter = selected.replace('#news-', '');
+			getAllNews(filter);
+		});
+		
+	});
+</script>
+
+		<div class="myshopnshare-header">
+			<h3>Latest News</h3>
+		</div>
+		<div style="float: left;">
+			
+			<div id="news-box" class="news-box">
+			<c:forEach items="${newzs}" var="newz">
+				<sns:newsdata personId="${person.id}" newsId="${newz.id}" newsPersonId="${newz.newsPersonId}" enteredDate="${newz.enteredDate}">${newz.message}</sns:newsdata>			
+			</c:forEach>
+			</div>
+
+		</div>
+		<div class="news-controller">
+			<div class="news-select-wrap">
+				<select id="all-news-options" name="news-options">
+					<option value="#news-world" selected>General News</option>
+					<option value="#news-self">My News</option>
+					<option value="#news-friends">My Friends News</option>
+				</select>
+			</div>
+							
+		</div>

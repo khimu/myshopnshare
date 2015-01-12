@@ -1,0 +1,19 @@
+#basic-accordian{
+}
+
+.accordion_headings{
+	cursor:pointer;
+}
+
+.accordion_headings:hover{
+	background:#00CCFF;
+}
+
+.accordion_child{
+	padding:15px;
+	background:#EEE;
+}
+
+.header_highlight{
+	background:#00CCFF;
+}

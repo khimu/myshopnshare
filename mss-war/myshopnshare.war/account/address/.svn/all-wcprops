@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/2/trunk/myshopnshare.war/account/address
+END
+address.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/2/trunk/myshopnshare.war/account/address/address.jsp
+END
+edit.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/2/trunk/myshopnshare.war/account/address/edit.jsp
+END
+jsonAddresses.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/2/trunk/myshopnshare.war/account/address/jsonAddresses.jsp
+END
+add.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/2/trunk/myshopnshare.war/account/address/add.jsp
+END
+jsonAddress.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/2/trunk/myshopnshare.war/account/address/jsonAddress.jsp
+END
+state.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/2/trunk/myshopnshare.war/account/address/state.jsp
+END
+country.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/2/trunk/myshopnshare.war/account/address/country.jsp
+END

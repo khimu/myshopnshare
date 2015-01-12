@@ -1,0 +1,79 @@
+label {
+	font: 12px Arial, Helvetica, sans-serif; 
+	color: #000000;
+	width: 120px;
+	float: left;
+	text-align: right;
+	height: 20px;
+	vertical-align: bottom;
+	margin-top: 6px;
+	
+}
+
+.row{
+	clear: both;
+}
+
+.label
+{
+	vertical-align: bottom;
+	display: block;
+	padding-top: 6px;
+}
+
+input,select{
+	display: block;
+	margin-left: 122px;
+	margin-top: 10px;
+}
+input.text,select{
+	width: 200px;
+}
+
+input.radio, input.checkbox{
+	margin-left: 20px;
+}
+.error
+{
+	font-family: Arial, Helvetica, SansSerif;
+	color: #CC0000;
+	font-size: 11px;
+	font-weight: normal;
+	
+}
+.label_error
+{
+	font-family: Arial, Helvetica, SansSerif;
+	color: #CC0000;
+	font-size: 12px;
+	font-weight: bold;
+	width: 120px;
+	height: 20px;
+	
+}
+
+form .error
+{
+	left: 122px;
+	position: relative;
+}
+
+
+#selectedCriteria, #legend {
+	font-family: Arial;
+	font-size: 10pt;
+	margin-bottom: 20px;
+}
+#selectedCriteria .label, #legend .label{
+	font-weight:bold;
+	float: left;
+	display: block;
+	clear: left;
+	text-align: right;
+	width: 130px;
+}
+.value {
+	display: block;
+	margin-left: 122px;
+	padding-top: 6px;
+}

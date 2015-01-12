@@ -1,0 +1,44 @@
+	#ads-box {
+		margin: 0px;
+	}
+	ads-box h3 {
+		background-color: #FFF;
+	}	
+	#ad-box {
+		position: relative;
+		margin: 0px;
+	}
+	
+	#ad-box a {
+		float: left;		
+	}
+	
+	#ad-image-link img {
+		border: 1px solid #FF7900;
+	}
+	
+	#ad-box ul {
+		float: none;
+	}		
+	
+	#ad-name {
+		float: none;
+		clear: both;
+		margin-bottom: 5px;
+	}
+	
+	#ad-name p {
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+	
+	#ads-accordion h3 {
+		padding: 5px;
+		cursor: pointer;
+		background-color: #FFF;
+	}	
+	
+	#ads-accordion h3 {
+		border-bottom: 1px solid #FFFFCC;
+	}
+	

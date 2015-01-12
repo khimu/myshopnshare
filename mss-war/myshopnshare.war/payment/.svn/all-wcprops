@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/2/trunk/myshopnshare.war/payment
+END
+address.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/2/trunk/myshopnshare.war/payment/address.jsp
+END
+paypal.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/2/trunk/myshopnshare.war/payment/paypal.jsp
+END
+card.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/2/trunk/myshopnshare.war/payment/card.jsp
+END
+emails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/2/trunk/myshopnshare.war/payment/emails.jsp
+END
+paymentPage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/2/trunk/myshopnshare.war/payment/paymentPage.jsp
+END
+contact.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/2/trunk/myshopnshare.war/payment/contact.jsp
+END
+cards.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/2/trunk/myshopnshare.war/payment/cards.jsp
+END
+phones.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/2/trunk/myshopnshare.war/payment/phones.jsp
+END
+addresses.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/2/trunk/myshopnshare.war/payment/addresses.jsp
+END
+payment.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/2/trunk/myshopnshare.war/payment/payment.jsp
+END
+jsonAddress.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/2/trunk/myshopnshare.war/payment/jsonAddress.jsp
+END

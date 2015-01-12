@@ -1,0 +1,52 @@
+8
+
+dir
+82
+http://76.91.160.2:8183/svn/meetme/meetme.war/js/validation/jquery-validate/demo/multipart/js
+http://76.91.160.2:8183/svn
+
+
+
+2009-01-21T09:00:28.642000Z
+82
+kim
+
+
+svn:special svn:externals svn:needs-lock
+
+jquery.dimensions.js
+file
+
+
+
+
+2009-01-14T07:20:30.000000Z
+ba07b60fa3777a55d725ba2637cfb79b
+2009-01-21T09:00:28.642000Z
+82
+kim
+
+jquery.maskedinput-1.0.js
+file
+
+
+
+
+2009-01-14T07:20:30.000000Z
+da4c4e089d4eb63d427db261c6a0d27c
+2009-01-21T09:00:28.642000Z
+82
+kim
+
+jquery.accordion.js
+file
+
+
+
+
+2009-01-14T07:20:30.000000Z
+893e2ed3c5bb5c28ee3e0c15bc7db463
+2009-01-21T09:00:28.642000Z
+82
+kim
+

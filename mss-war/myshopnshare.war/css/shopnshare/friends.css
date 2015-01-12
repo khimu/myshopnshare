@@ -1,0 +1,32 @@
+	#friend-box {
+		position: relative;
+	}
+	
+	#friend-box a {
+		float: left;
+	}
+	
+	#friend-image-link img {
+		border: 1px solid #FF7900;
+	}	
+	
+	#friend-box ul {
+		float: none;
+	}		
+	
+	#friend-name {
+		clear: both;
+		margin-left: 5px;
+		margin-bottom: 5px;
+	}	
+	
+	#friends-accordion h3 {
+		padding: 5px;
+		cursor: pointer;
+		background-color: #FF7900;
+	}
+	
+	#friends-accordion h3 {
+		border-bottom: 1px solid #FFFFCC;
+	}
+	

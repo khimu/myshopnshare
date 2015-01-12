@@ -1,0 +1,102 @@
+Ext.onReady(function()
+{
+	var accordion = new Ext.Panel({
+	    title: 'Friends',
+	    layout:'accordion',
+	    region:'east',
+	    contentEl: 'east',
+	    defaults: {
+	        // applied to each contained panel
+	        bodyStyle: 'border: 0px none white'
+	    },
+	    layoutConfig: {
+	        // layout-specific configs go here
+	        titleCollapse: false,
+	        animate: true,
+	        activeOnTop: true
+	    },
+	    items: [{
+	        title: 'Panel 1',
+	        contentEl: 'wrapper'
+	    },{
+	        title: 'Panel 2',
+	        contentEl: 'friends-updates'
+	    },{
+	        title: 'Panel 3',
+	        html: '<p>Panel content!</p>'
+	    }]
+	});	
+	
+	viewport = new Ext.Viewport({
+		monitorResize: true ,
+		layout:'border',
+		items:[{ // raw
+			region:'north',
+			contentEl: 'north',
+			split: false ,
+			layout: 'fit',
+			height: 50
+		},{
+		    title: 'Friends',
+		    layout:'accordion',
+		    region:'east',
+		    contentEl: 'east',
+		    defaults: {
+		        // applied to each contained panel
+		        bodyStyle: 'border: 0px none white'
+		    },
+		    layoutConfig: {
+		        // layout-specific configs go here
+		        titleCollapse: false,
+		        animate: true,
+		        activeOnTop: false
+		    },
+		    items: [{
+		        title: 'Friends',
+		        contentEl: 'wrapper'
+		    },{
+		        title: 'Friends Updates',
+		        contentEl: 'friends-updates'
+		    },{
+		        title: 'Bank Account',
+		        contentEl: 'virtual-bank'
+		    },
+		    {
+		        title: 'Shopping Bucket',
+		        contentEl: 'shopping-bucket'
+		    }]
+			
+		},{
+			region:'west',
+			id:'west-panel',
+			collapsible: true ,
+			title:'Advertisements',
+			split: true,
+			autoScroll: true ,
+			layout: 'fit',
+			margins:'0 0 0 5' ,
+			width: 180,
+			height: 400,
+			contentEl: 'west'
+
+		},
+		{
+			region:'center',
+			id: 'mainCentralPanel',
+			width: 640 ,
+			layout: 'fit',
+			autoHeight: false ,
+			bodyStyle: 'position: relative;background-color:#FFFFFF;border: 0px none #FFF' ,
+			autoScroll: true ,
+			contentEl: 'center'
+		},
+		{
+			region:'south',
+			height: 60,
+			layout: 'fit',
+			margins:'0 0 0 0' ,
+			contentEl: 'south-panel'
+		}		
+		]
+	});
+}) ;

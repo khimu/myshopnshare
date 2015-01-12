@@ -1,0 +1,142 @@
+
+.tabularTable
+{
+	float: left;
+}
+
+
+.tabularTable .tableBorder
+{
+	border-left: 1px solid #999999;
+	border-top: 1px solid #999999;
+	border-bottom: 1px solid #999999;
+	background: #CCCCCC;
+	padding: 5px;
+	
+}
+.tabularTable table
+{
+	border-collapse: collapse;
+	width: 100%;
+	clear: both;
+	
+}
+.tabularTable .tableBorder .pageoptions {
+	float:right;
+	
+	background: #E8F4FF;
+	border: 1px solid #999999;
+	COLOR: #333333; 
+	padding-left: 15px;
+	padding-right: 15px;
+	font-size: 0.7em;
+	font-family: Arial;
+	text-align: right;
+	margin-left: 33%;
+}
+.tabularTable .pagebanner
+{
+	float:right;
+	padding-left: 20px;
+	
+}
+.tabularTable .pagelinks
+{
+	text-align: right;
+}
+
+.tabularTable .pagelinks a
+{
+	COLOR: #666666;
+}
+.tabularTable .pagelinks .disabledLinks
+{
+	COLOR: #666666;
+}
+.tabularTable .exportlinks
+{
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	COLOR: #003399;
+	FONT-SIZE: 0.8em;
+	FONT-WEIGHT: normal;
+	border: 1px solid #999999;
+	clear: both;
+	display: block;
+	background: #FFFFFF;
+	padding-left: 5px;
+	top: 2px;
+	position: relative;
+}
+.tabularTable .exportlinks a
+{
+	COLOR: #999999;
+}
+.tabularTable table th
+{
+	border: 1px solid #C0C0C0;
+	padding-right: 7px;
+}
+
+.tabularTable table thead tr th
+{
+	font-family: Arial, Helvetica, SansSerif;
+	color: #003399;
+	font-size: 0.7em;
+	padding-top: 2px;
+	padding-bottom: 2px; 
+	text-align: center;
+}
+.tabularTable .sortable
+{
+	background: #DDDDDD;
+}
+.tabularTable .sorted
+{
+	background:#FFFFFF; 
+	color: #cc0000;
+	border-bottom: 1px solid #FFFFFF;
+}
+.tabularTable .sorted a
+{
+	color: #cc0000;
+}
+
+.tabularTable table thead tr th a
+{
+	color: #003399;
+}
+.tabularTable tr td
+{
+	border-bottom: 1px solid #CCCCCC;
+	border-left: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
+	text-align: center;
+}
+.tabularTable tr td
+{
+	font-family: Arial, Helvetica, SansSerif;
+	color: #000000;
+	font-size: 0.7em;
+	background: #FFFFFF;
+	padding: 3px;
+}
+.tabularTable table tfoot td
+{
+	font-family: Arial, Helvetica, SansSerif;
+	color: #000000;
+	font-size: 0.6em;
+	font-weight: bold;
+	background: #CCCCCC;
+}
+
+hr
+{
+	clear: left;
+}
+
+.print_recommendation {
+	clear: both;
+	font-size: 12pt;
+	font-weight: bold;
+	font-family: "Times New Roman";
+}

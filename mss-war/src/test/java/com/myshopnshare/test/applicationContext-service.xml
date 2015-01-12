@@ -1,0 +1,932 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-2.5.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+    default-autowire="byName">
+
+	<context:component-scan base-package="com.myshopnshare.core.service">
+        <context:include-filter type="annotation"
+            expression="org.springframework.stereotype.Service"/>
+    </context:component-scan>
+
+    <bean id="adsTagService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.AdsTagServiceImpl">
+            	<property name="dao" ref="adsTagDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="addressService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.AddressServiceImpl">
+            	<property name="dao" ref="addressDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="authoritiesService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.AuthoritiesServiceImpl">
+            	<property name="dao" ref="authoritiesDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="bankService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.BankServiceImpl">
+            	<property name="dao" ref="bankDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>	
+    <bean id="commentsService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.CommentsServiceImpl">
+            	<property name="dao" ref="commentsDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="confirmEmailService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.ConfirmEmailServiceImpl">
+            	<property name="dao" ref="confirmEmailDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="creditCardService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.CreditCardServiceImpl">
+            	<property name="dao" ref="creditCardDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>	
+    <bean id="emailService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.EmailServiceImpl">
+            	<property name="dao" ref="emailDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="newsCommentService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.NewsCommentServiceImpl">
+            	<property name="dao" ref="newsCommentDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="newsService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.NewsServiceImpl">
+            	<property name="dao" ref="newsDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="friendService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.FriendServiceImpl">
+            	<property name="dao" ref="friendDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="headlineService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.HeadlineServiceImpl">
+            	<property name="dao" ref="headlineDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="orderService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.OrderServiceImpl">
+            	<property name="dao" ref="orderDetailDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="paymentService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.PaymentServiceImpl">
+            	<property name="dao" ref="paymentDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="permissionService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.PermissionServiceImpl">
+            	<property name="dao" ref="permissionDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="personService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.PersonServiceImpl">
+            	<property name="dao" ref="personDAO"/>
+            </bean>		
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="phoneService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.PhoneServiceImpl">
+            	<property name="dao" ref="phoneDAO"/>
+            </bean>		
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>	
+    <bean id="scribbleService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.ScribbleServiceImpl">
+            	<property name="dao" ref="scribbleDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="requestFriendService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.RequestFriendServiceImpl">
+            	<property name="dao" ref="requestFriendDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="roleService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.RoleServiceImpl">
+				<property name="dao" ref="roleDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+	
+	<bean id="passwordEncoder" class="org.springframework.security.providers.encoding.Md5PasswordEncoder"/>
+
+<!--
+    <bean id="userDetailsService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.PasswordEncodingUserDetailsService">
+            	<property name="dao" ref="userDAO"/>
+				<property name="roleDAO" ref="roleDAO"/>
+				<property name="passwordEncoder" ref="passwordEncoder"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+	-->
+	
+    <bean id="userService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.UserServiceImpl">
+            	<property name="dao" ref="userDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="itemService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.ItemServiceImpl">
+            	<property name="dao" ref="itemDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="actionService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.ActionServiceImpl">
+            	<property name="dao" ref="actionDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="activityVisibilityService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.ActivityVisibilityServiceImpl">
+            	<property name="dao" ref="activityVisibilityDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="itemOrderDetailService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.ItemOrderDetailServiceImpl">
+            	<property name="dao" ref="itemOrderDetailDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="photoService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.PhotoServiceImpl">
+            	<property name="dao" ref="photoDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="toolService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.ToolServiceImpl">
+            	<property name="dao" ref="toolDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="vendorService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.VendorServiceImpl">
+            	<property name="dao" ref="vendorDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="vendorItemService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.VendorItemServiceImpl">
+            	<property name="dao" ref="vendorItemDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="itemCategoryService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.ItemCategoryServiceImpl">
+            	<property name="dao" ref="itemCategoryDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="photoCategoryService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.PhotoCategoryServiceImpl">
+            	<property name="dao" ref="photoCategoryDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="visibilityDomainService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.VisibilityDomainServiceImpl">
+            	<property name="dao" ref="visibilityDomainDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>	
+    <bean id="itemVisibilityDomainService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.ItemVisibilityDomainServiceImpl">
+            	<property name="dao" ref="itemVisibilityDomainDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>    
+    <bean id="vendorItemVisibilityDomainService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.VendorItemVisibilityDomainServiceImpl">
+            	<property name="dao" ref="vendorItemVisibilityDomainDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean> 
+    <bean id="personVisibilityDomainService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.PersonVisibilityDomainServiceImpl">
+            	<property name="dao" ref="personVisibilityDomainDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>    
+    <bean id="faceService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.FaceServiceImpl">
+            	<property name="dao" ref="faceDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>    
+    <bean id="newsVisibilityDomainService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.NewsVisibilityDomainServiceImpl">
+            	<property name="dao" ref="newsVisibilityDomainDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>    
+    <bean id="scribbleVisibilityDomainService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.ScribbleVisibilityDomainServiceImpl">
+            	<property name="dao" ref="scribbleVisibilityDomainDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>    
+    <bean id="eventsService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.EventsServiceImpl">
+            	<property name="dao" ref="eventsDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>    
+    <bean id="shoppingCartService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.ShoppingCartServiceImpl">
+            	<property name="dao" ref="shoppingCartDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="adsService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.AdsServiceImpl">
+            	<property name="dao" ref="adsDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="permissionVisibilityService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.PermissionVisibilityServiceImpl">
+            	<property name="dao" ref="permissionVisibilityDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean> 
+    <bean id="contactService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.ContactServiceImpl">
+            	<property name="dao" ref="contactDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean> 
+    <bean id="commercialService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.CommercialServiceImpl">
+            	<property name="dao" ref="commercialDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>   
+    <bean id="journalService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.JournalServiceImpl">
+            	<property name="dao" ref="journalDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>               
+
+    <bean id="journalVisibilityService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.JournalVisibilityServiceImpl">
+            	<property name="dao" ref="journalVisibilityDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>               
+    <bean id="cartItemService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.CartItemServiceImpl">
+            	<property name="dao" ref="cartItemDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="institutionService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.InstitutionServiceImpl">
+            	<property name="dao" ref="institutionDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean> 
+    <bean id="merchantService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.MerchantServiceImpl">
+            	<property name="dao" ref="merchantDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="employerService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.EmployerServiceImpl">
+            	<property name="dao" ref="employerDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>    
+    <bean id="eventVisibilityService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.EventVisibilityServiceImpl">
+            	<property name="dao" ref="employerDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>                  
+    <bean id="pointItemService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">    	
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target">
+            <bean class="com.myshopnshare.core.service.PointItemServiceImpl">
+            	<property name="dao" ref="pointItemDAO"/>
+            </bean>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean> 
+</beans>

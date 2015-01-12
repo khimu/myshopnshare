@@ -1,0 +1,147 @@
+/* imagogallery css*/
+body {
+	background-color: #242424;
+	color: #000000;
+	margin: 0px;
+}
+
+.imago_thumbImg {
+	border: 5px solid #000000;
+}
+
+.imago_selectedThumb {
+	border: 5px solid #FFFFFF;
+}
+
+#imagoError {
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	display: none;
+	color: #FFFFFF;
+}
+
+#imagoThumbMenu {
+	position: relative;
+	left: 50px;
+	top: 100px;
+	width: 300px;
+	height: 330px;
+}
+
+#imagoCurrentThumbTable {
+	border-collapse: separate;
+	border-spacing: 5px;
+	margin: 5px;
+	padding: 5px;
+	outline: 5px;
+}
+
+#imagoCurrentImageTitle {
+	text-align: center;
+	font-weight: bold;
+	color: #FFFFFF;
+	margin-top: 0px;
+	z-index: 11;
+}
+
+#imagoGalleryTitle {
+	text-align: center;
+	font-size: larger;
+	font-weight: bold;
+	font-family: monospace;
+	color: #FFFFFF;
+}
+
+#imagoFrame {
+	position: relative;
+	margin-top: -250px;
+	margin-left: 370px;
+}
+
+#imagoCurrentImageDiv {
+	position: relative;
+	top: 0px;
+}
+
+#imagoCurrentImg {
+	border: 20px solid #000000;
+}
+
+.imagogallery {
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+
+#imagoLoadingDiv {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+}
+
+#imagoLoadingDiv,#imagoCurrentImageLoadingDiv {
+	background: url('img/loading.gif') no-repeat center center;
+	background-color: #000;
+}
+
+#imagoCurrentImageLoadingDiv {
+	position: absolute;
+	display: none;
+	z-index: 10;
+}
+
+a.imago_navNextImage,a.imago_navPreviousImage {
+	position: absolute;
+	height: 100%;
+	width: 10%;
+	cursor: pointer;
+	z-index: 10;
+	background: url('img/empty.gif') no-repeat center center;
+}
+
+a.imago_navNext,a.imago_navPrev {
+	position: absolute;
+	height: 31px;
+	width: 31px;
+	cursor: pointer;
+	z-index: 10;
+	background: url('img/empty.gif') no-repeat center center;
+}
+
+a.imago_navPreviousImage:focus,a.imago_navNextImage:focus {
+	outline-style: none;
+}
+
+a.imago_navPrev {
+	left: 30px;
+	bottom: 0px;
+	background: url('img/prevImg.png') no-repeat top left;
+}
+
+a.imago_navNext {
+	right: 30px;
+	bottom: 0px;
+	background: url('img/nextImg.png') no-repeat top right;
+}
+
+a.imago_navNextImage:hover {
+	background: url('img/nextImg.png') no-repeat center center;
+}
+
+a.imago_navNextImage {
+	right: 20px;
+	top: 0px;
+}
+
+a.imago_navPreviousImage {
+	left: 20px;
+	top: 0px;
+}
+
+a.imago_navPreviousImage:hover {
+	background: url('img/prevImg.png') no-repeat center center;
+}

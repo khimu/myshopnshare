@@ -1,0 +1,61 @@
+#container {
+	height: 200px;
+	width: 980px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 80px;
+	left: 80px;
+}
+
+#top {
+	width: 980px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#left {
+	float: left;
+	height: 152px;
+	width: 80px;
+	padding-right: 0px;
+	position: absolute;
+	left: 90px;
+}
+
+#container #content {
+	float: left;
+	height: 90px;
+	width: 218px;
+	padding-right: 10px;
+	overflow: hidden;
+	z-index: 0;
+	position: absolute;
+	left: 170px;
+	border: 1px solid #999999;
+	background: url(bg.jpg) repeat-x bottom;
+}
+
+#container #content #innercontent {
+	height: 90px;
+	overflow: hidden;
+	position: absolute;
+	width: 990px;
+	z-index: -1;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+#container #content #innercontent img {
+	padding: 10px;
+}
+
+#right {
+	float: left;
+	height: 144px;
+	width: 80px;
+	z-index: 100;
+	background: #FFFFFF;
+	position: absolute;
+	left: 400px;
+}

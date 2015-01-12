@@ -1,0 +1,79 @@
+			var $j = jQuery.noConflict();
+					
+			$j(window).load(function() {
+				$j('p').remove();
+				friends.rotateFriends();
+				ads.rotateAds();
+				/*
+				slider.init('west',1);
+				slider.init('east',1);
+				*/
+			});
+
+			$j(document).ready(function() {
+				  $j('#friends-accordion > div:gt(0)').hide();
+				  $j('#friends-accordion > h3').click(function() {
+					$j(this).next('div:hidden').slideDown('fast')
+					.siblings('div:visible').slideUp('fast');
+				  });
+				  
+				  $j('#ads-accordion > div:gt(0)').hide();
+				  $j('#ads-accordion > h3').click(function() {
+					$j(this).next('div:hidden').slideDown('fast')
+					.siblings('div:visible').slideUp('fast');
+				  });				  
+
+				/*
+				$j('div#friends-accordion:eq(1) > div:gt(0)').hide();
+				
+				$j('div#friends-accordion:eq(1)> #friends-accordion h3').click(function() {					
+					$j(this).next('div:hidden').slideDown('fast')
+					.siblings('div:visible').slideUp('fast');
+				});
+				*/
+				$j("#news a").click(function () {
+					$j(".active").removeClass("active");
+					$j(this).addClass("active");
+					$j(".news-content").hide();
+					var content_show = $j(this).attr("title");
+					$j("#"+content_show).show();				
+				});				
+				$j("#friends-list img").hover(function () {
+					//stop = true;
+					/*
+					var index = $(this).id.value;
+					alert(index);
+					document.getElementById("friend-image-link").href = root_path + friendsImages[index];
+					document.getElementById("friend-image").src = root_path + friendsImages[index];
+					document.getElementById("friend-image").title = friendsNames[index];
+					document.getElementById("friend-name").innerHTML = friendsNames[index];	
+					*/						
+				}, function () {
+					// stop = false;
+					//rotateFriends();		
+				});			
+				$j('#fisheye').Fisheye(
+						{
+							maxWidth: 40,
+							items: 'a',
+							itemsText: 'span',
+							container: '.fisheyeContainter',
+							itemWidth: 40,
+							proximity: 10,
+							halign : 'center'
+						}
+					);
+				$j('#fisheye2').Fisheye(
+						{
+							maxWidth: 60,
+							items: 'a',
+							itemsText: 'span',
+							container: '.fisheyeContainter',
+							itemWidth: 40,
+							proximity: 80,
+							alignment : 'left',
+							valign: 'bottom',
+							halign : 'center'
+						}
+					)
+			});								

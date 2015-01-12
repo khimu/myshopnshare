@@ -1,0 +1,183 @@
+/**
+  * POSTAL-STYLE STYLE SHEETS (AS APPROVED BY THE INTERNET CHANNEL)
+  */
+body{
+	padding: 0px;
+	margin: 0px;
+}
+
+.hide{
+	display: none;	
+}
+
+.wrapper { 
+		width: 400px;
+
+}
+          /* Allways good to have on full width liquid CSS layouts, 
+             google "min-width IE" for JS solutions there */
+
+.wrapper{
+	
+}
+
+#mainWindow{
+
+}
+	
+
+.header
+{
+	width: 720px;
+}
+
+#headerContainer {
+		
+}
+.usps
+{
+	background-image: url('/govgrnds-example/images/hdr_uspsLogo.jpg');
+	width:157px;
+	height:25px;
+	display: block;
+	float: left;
+	margin: 8px 7px;
+}
+.usps_text
+{
+	display: none;
+}
+.utilitybar
+{
+	display:block;
+	float: right;
+	font: bold 12px Arial, Helvetica, sans-serif; 
+	color: #003399;
+	top: 20px;
+	position: relative;
+}
+
+.redMenu
+{
+	clear: both;
+	width:100%;
+	background:#CC0000;
+	height: 6px;
+	padding: 0;
+	margin: 0;
+	font-size: 0px;
+}
+h2
+{
+	color: #CC0000;
+	font-family: "Arial Narrow", Arial, Helvetica, SansSerif;
+	font-size: 19px;
+}
+h3
+{
+	color: #4170A0;
+	font-family: "Arial Narrow", Arial, Helvetica, SansSerif;;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.logtext{
+	font-family:  Arial, Helvetica, SansSerif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #ff0000;
+}
+
+p,li{
+	font-family: Arial, Helvetica, SansSerif;
+	color: #000000;
+	font-size: 12px;
+	font-weight: normal;
+}
+ul
+{
+	margin:0;
+	padding:0;
+	margin-left: 32px;
+}
+li ul{
+	margin-bottom: 5px;
+}
+li ul li{
+	font-size: 12px;
+}
+li .description{
+	color: #808080;
+	font-size: 12px;
+}
+.footer
+{
+	padding-top: 0px;
+	margin-top: 0px;
+	width: 720px;
+	clear: both;
+}
+.footerLine
+{
+	/*
+	color: #003399;
+	background-color: #003399;
+	width: 100%;
+
+	size:4px;*/
+	background-image: url('/govgrnds-example/images/menu_bk.gif');
+	background-repeat: repeat-x;
+	background-position: top;
+    margin:  0px;
+    border: 0px;
+    padding-top: 0px;
+    padding: 0px;
+    line-height: 2px;
+    height: 1px;
+}
+
+.footerLine hr { 
+	width: 0;
+	height: 1px;
+	margin:  0px;
+	padding: 0px;
+}
+
+.footerBadge
+{
+	float: left;
+}
+.footerBadge img
+{
+	float: left;
+}
+.footerBody
+{
+	background: #0066CC;
+	font-family: Arial, Helvetica, SansSerif;
+	color: #FFFFFF;
+	font-size : 12px;
+	height: 35px;
+	background-image: url('/govgrnds-example/images/corner_footer.jpg');
+	background-repeat: no-repeat;
+	background-position: bottom right;
+}
+.footerBody a
+{
+	color: #FFFFFF;
+}
+.footerLinks
+{
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	
+}
+#footerContainer{
+	
+}
+
+.footerCorner
+{
+	float: right;
+}

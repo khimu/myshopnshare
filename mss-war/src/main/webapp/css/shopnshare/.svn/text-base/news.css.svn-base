@@ -1,0 +1,94 @@
+#news {
+	height: 25px;
+	position: relative;
+}
+
+#news-box ul li {
+	background-color: #80C31C;
+	display: block;
+	float: left;
+}
+
+#news-box ul li a,#news-box ul li a:visited,#news-box ul li a:active {
+	color: #FFFFCC;
+	float: left;
+	margin: 0;
+	padding: 5px;
+	text-decoration: none;
+}
+
+#news-box ul li a:hover {
+	background-color: #BCDD5A;
+	color: #FFFFCC;
+}
+
+a:hover {
+	color: #FFFFCC;
+	text-decoration: none;
+}
+
+.active {
+	background-color: #BCDD5A;
+	color: #FFFFCC !important;
+}
+
+#news-box {
+	border-top: 1px solid #FFFFFF;
+	margin-bottom: 30px;
+	padding: 1px;
+}
+
+element.style {
+	display: block;
+}
+
+#public,#private,#friends {
+	display: none;
+}
+
+
+.news-content {
+	border-top: 1px solid #FFFFFF;
+	margin-top: 0px;
+	min-height: 110px;
+	//padding: 5px;
+}
+
+#news-box ul {
+	font-size: 0.8em;
+	line-height: 1em;
+	font-size-adjust: none;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: normal;
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+	text-transform: uppercase;
+}
+
+.recent-comment li:hover,.recent-posts li:hover,.categories li:hover {
+	background-color: #F4F5EA;
+	position: relative;
+}
+
+.recent-comment li {
+	border: 1px solid #CCD1A1;
+	height: 36px;
+	padding: 2px 0 2px 5px;
+	position: relative;
+}
+
+.recent-comment ol {
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+}
+
+.recent-comment img {
+	height: 25px;
+	width: 25px;
+	float: left;
+	margin-right: 10px;
+}

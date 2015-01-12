@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<decorators defaultdir="/decorators">
+	<!-- Any urls that are excluded will never be decorated by Sitemesh -->
+	<excludes>
+		<pattern>/exclude.jsp</pattern>
+		<pattern>/images/*</pattern>
+		<pattern>/excludes/*</pattern>
+		<pattern>/css/*</pattern>
+		<pattern>/js/*</pattern>
+		<pattern>*pdf*</pattern>
+		<pattern>*csv*</pattern>
+		<pattern>*xls*</pattern>
+	</excludes>
+
+	<decorator name="main" page="homeLayout.jsp">
+		<pattern>/secure/home.do</pattern>
+	</decorator>
+
+	<decorator name="main" page="homeLayout.jsp">
+		<pattern>/secure/account.do</pattern>
+	</decorator>
+
+	<decorator name="main" page="homeLayout.jsp">
+		<pattern>/secure/friends.do</pattern>
+	</decorator>
+
+	<decorator name="main" page="homeLayout.jsp">
+		<pattern>/secure/gallery.do</pattern>
+	</decorator>
+			
+	<decorator name="login" page="loginLayout.jsp">
+		<pattern>/login.do</pattern>
+		<pattern>/confirmEmail.do</pattern>
+		<pattern>/register.do</pattern>
+	</decorator>
+
+	<decorator name="search" page="searchLayout.jsp">
+		<pattern>/secure/search.do</pattern>
+	</decorator>
+
+	<decorator name="friend" page="friendPageLayout.jsp">
+		<pattern>/secure/friends.do</pattern>
+	</decorator>
+
+	<decorator name="none" page="none.jsp">
+		<pattern>/ajax/*</pattern>
+	</decorator>
+	
+	<decorator name="none" page="none.jsp">
+		<pattern>/public/*</pattern>
+	</decorator>
+
+	
+	<decorator name="searchHeaderLayout" page="searchHeaderLayout.jsp" />
+	<decorator name="searchLeftLayout" page="searchLeftLayout.jsp" />
+	
+	<decorator name="friendHeaderLayout" page="friendHeaderLayout.jsp" />
+	<decorator name="friendLeftLayout" page="friendLeftLayout.jsp" />
+	
+	<decorator name="homeHeaderLayout" page="homeHeaderLayout.jsp" />
+	<decorator name="homeLeftLayout" page="homeLeftLayout.jsp" />
+	<decorator name="homeRightLayout" page="homeRightLayout.jsp" />
+	
+	<decorator name="footer" page="footer.jsp" />
+	<decorator name="panel" page="panel.jsp" />
+	<decorator name="printable" page="printable.jsp" />
+	<decorator name="black" page="black.jsp" />
+	
+	<decorator name="test" page="test.jsp">
+		<pattern>/agent.jsp</pattern>
+	</decorator>
+</decorators>

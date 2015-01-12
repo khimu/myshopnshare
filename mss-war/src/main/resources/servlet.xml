@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-2.5.xsd"
+    default-autowire="byName">
+    
+	<bean id="dump" class="com.myshopnshare.utils.Dump">
+		<constructor-arg value="/ads/" />
+		<constructor-arg value="/faces/" />
+		<constructor-arg value="/items/" />
+		<constructor-arg value="/products/" />
+		<constructor-arg value="/videos/" />
+    </bean> 
+    
+	<!--
+		- The controllers are autodetected POJOs labeled with the @Controller annotation.
+	-->
+	 
+	<!-- 
+	<context:component-scan base-package="com.myshopnshare.webapp.controller">
+		        <context:include-filter type="annotation"
+            expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+	-->
+
+	<!--
+		- The form-based controllers within this application provide @RequestMapping 
+		- annotations at the type level for path mapping URLs and @RequestMapping 
+		- at the method level for request type mappings (e.g., GET and POST). 
+		- In contrast, ClinicController - which is not form-based - provides 
+		- @RequestMapping only at the method level for path mapping URLs.
+		-
+		- DefaultAnnotationHandlerMapping is driven by these annotations and is 
+		- enabled by default with Java 5+.
+	-->
+
+	<!--
+		- This bean processes annotated handler methods, applying PetClinic-specific PropertyEditors
+		- for request parameter binding. It overrides the default AnnotationMethodHandlerAdapter.
+	-->
+	<!--
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="webBindingInitializer">
+			<bean class="com.myshopnshare.core.LoginBinderInitializer"/>
+		</property>
+	</bean>
+	-->
+
+<!--  
+	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="org.springframework.dao.DataAccessException">dataAccessFailure</prop>
+				<prop key="org.springframework.transaction.TransactionException">dataAccessFailure</prop>
+			</props>
+		</property>
+	</bean>
+	-->
+			
+	<bean id="testHandlerInterceptor" class="com.myshopnshare.webapp.controller.TestHandlerInterceptor"/>
+	
+	 <!--  /login.do=loginController -->
+	 
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">		
+		<property name="interceptors">
+			<list>
+				<ref local="testHandlerInterceptor"/>
+			</list>
+		</property>			
+		<property name="mappings">
+		  <value>
+		 	/public/publicPage.do=publicPageController		
+		  	/public/search.do=publicSearchController
+		  	/public/retrieve.do=usernamePasswordController
+		  	/public/searchProducts.do=searchProductsController	
+			/public/searchServices.do=searchServicesController	
+			/public/vendorItemPage.do=vendorItemPageController  
+			/public/pointItemPage.do=pointItemPageController  
+			/public/publicItemComments.do=publicItemCommentsController
+			/public/searchEvents.do=searchEventsController
+			/public/searchPoints.do=searchPointsController
+			/public/merchant.do=merchantController	
+			
+		  	/admin/admin.do=adminController
+		  	/admin/internal.do=internalController
+		  
+			/contact.do=contactController
+			/mainPage.do=mainPageController			    
+		    	/home.do=loginRedirectController
+		    	/register.do=registerController
+		    	/merchantRegister.do=merchantRegisterController
+		    	/employerRegister.do=employerRegisterController
+			/institutionRegister.do=institutionRegisterController
+			/confirmEmail.do=confirmEmailController	
+			
+			/secure/itemComments.do=itemCommentsController
+			/secure/account.do=accountController
+			/secure/email.do=emailController
+			/secure/bank.do=bankController
+			/secure/news.do=newsController
+			/secure/manageFriends.do=manageFriendsController
+			/secure/search.do=searchController
+			
+			/secure/manageRequest.do=manageRequestController
+			
+			/secure/address.do=addressController
+			/secure/person.do=personController
+			/secure/photo.do=photoController
+			/secure/profile.do=profileController
+			/secure/education.do=educationController
+			/secure/employment.do=employmentController
+			/secure/employer.do=employerController
+			/secure/institution.do=institutionController
+			/secure/phone.do=phoneController
+			/secure/potentialFriends.do=potentialFriendsController
+			/secure/possessions.do=possessionsController
+			/secure/itemCategories.do=itemCategoryController
+			/secure/payment.do=paymentController
+			/secure/subscribe.do=subscribeController
+			/secure/permission.do=permissionController	
+			/secure/product.do=productController
+			/secure/creditCard.do=creditCardController
+			/secure/home.do=homePageController
+			/secure/friendPage.do=friendPageController
+			/secure/settings.do=settingsController
+			/secure/orders.do=ordersController
+			/secure/buys.do=buyOrderController
+			/secure/sells.do=sellOrderController
+			/secure/face.do=faceController
+			/secure/chat.do=chatController
+			/secure/scribble.do=scribbleController
+			/secure/headline.do=headlineController
+			/secure/cart.do=cartController
+			/secure/events.do=eventsController
+			/secure/eventsComments.do=eventsCommentController
+			
+			/secure/user.do=userItemsManagementController
+			/secure/ads.do=adsController
+			/secure/itemPage.do=itemPageController
+			
+			/secure/visibility.do=visibilityController	
+			/secure/itemAction.do=itemActionController	
+				
+			/secure/userGroup.do=userGroupController	
+			/secure/journal.do=journalController	
+			/secure/commercials.do=commercialController	
+			/secure/rating.do=ratingController
+		  </value>
+		</property>
+	</bean>
+	
+	
+	
+	<!-- use the method name as the url -->
+	<bean id="commonMethodNameResolver" class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+		<property name="paramName" value="method"/>
+		<property name="defaultMethodName" value="view"/>
+	</bean>
+		
+	
+    <bean id="filenameController" class="org.springframework.web.servlet.mvc.UrlFilenameViewController"/>
+
+    <bean id="fileUploadController" class="com.myshopnshare.webapp.controller.FileUploadController">
+        <property name="validator" ref="beanValidator"/>
+        <property name="cancelView" value="redirect:mainMenu.html"/>
+        <property name="formView" value="uploadForm"/>
+        <property name="successView" value="uploadDisplay"/>
+    </bean>
+
+    <bean id="passwordHintController" class="com.myshopnshare.webapp.controller.PasswordHintController">
+        <property name="userManager" ref="userManager"/>
+        <property name="messageSource" ref="messageSource"/>
+        <property name="mailEngine" ref="mailEngine"/>
+        <property name="message" ref="mailMessage"/>
+    </bean>
+
+    <bean id="reloadController" class="com.myshopnshare.webapp.controller.ReloadController"/>
+
+    <bean id="signupController" class="com.myshopnshare.webapp.controller.SignupController">
+        <property name="validator" ref="beanValidator"/>
+        <property name="formView" value="signup"/>
+        <property name="successView" value="redirect:mainMenu.html"/>
+        <property name="userManager" ref="userManager"/>
+        <property name="roleManager" ref="roleManager"/>
+        <property name="mailEngine" ref="mailEngine"/>
+        <property name="message" ref="mailMessage"/>
+        <property name="templateName" value="accountCreated.vm"/>
+    </bean>
+
+    <bean id="userController" class="com.myshopnshare.webapp.controller.UserController">
+        <property name="userManager" ref="userManager"/>
+    </bean>
+
+    <bean id="userFormController" class="com.myshopnshare.webapp.controller.UserFormController">
+        <property name="validator" ref="beanValidator"/>
+        <property name="formView" value="userForm"/>
+        <property name="successView" value="redirect:users.html"/>
+        <property name="cancelView" value="redirect:mainMenu.html"/>
+        <property name="userManager" ref="userManager"/>
+        <property name="roleManager" ref="roleManager"/>
+        <property name="mailEngine" ref="mailEngine"/>
+        <property name="message" ref="mailMessage"/>
+        <property name="templateName" value="accountCreated.vm"/>
+    </bean>	
+	
+	<bean id="homePageController" class="com.myshopnshare.webapp.controller.HomePageController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>
+
+	<bean id="personController" class="com.myshopnshare.webapp.controller.PersonController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>
+
+	<bean id="friendPageController" class="com.myshopnshare.webapp.controller.FriendPageController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>
+    
+	<bean id="bankController" class="com.myshopnshare.webapp.controller.BankController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>
+    
+	<bean id="newsController" class="com.myshopnshare.webapp.controller.NewsController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>
+	<bean id="manageFriendsController" class="com.myshopnshare.webapp.controller.ManageFriendsController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>
+	<bean id="itemPageController" class="com.myshopnshare.webapp.controller.ItemPageController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>    
+	<bean id="vendorItemPageController" class="com.myshopnshare.webapp.controller.VendorItemPageController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>
+	<bean id="pointItemPageController" class="com.myshopnshare.webapp.controller.PointItemPageController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>    
+	<bean id="searchController" class="com.myshopnshare.webapp.controller.SearchController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>   
+	<bean id="publicSearchController" class="com.myshopnshare.webapp.controller.PublicSearchController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>         
+	<bean id="manageRequestController" class="com.myshopnshare.webapp.controller.ManageRequestController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>
+	<bean id="potentialFriendsController" class="com.myshopnshare.webapp.controller.PotentialFriendsController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>    
+	
+	<bean id="adminController" class="com.myshopnshare.webapp.controller.AdminController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>	
+    </bean>
+  
+	<bean id="usernamePasswordController" class="com.myshopnshare.webapp.controller.UsernamePasswordController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>
+	<bean id="settingsController" class="com.myshopnshare.webapp.controller.SettingsController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>	
+	<bean id="profileController" class="com.myshopnshare.webapp.controller.ProfileController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>
+	<bean id="educationController" class="com.myshopnshare.webapp.controller.EducationController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>	
+	<bean id="employmentController" class="com.myshopnshare.webapp.controller.EmploymentController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>
+	<bean id="employerController" class="com.myshopnshare.webapp.controller.EmployerController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>	
+	<bean id="employerRegisterController" class="com.myshopnshare.webapp.controller.EmployerRegisterController">
+		<property name="commandClass" value="com.myshopnshare.webapp.form.EmployerForm" />
+		<property name="commandName" value="register" />
+		<property name="formView" value="login/employerRegister" />
+		<property name="successView" value="login/confirmRegister" />	
+    </bean>
+	<bean id="internalController" class="com.myshopnshare.webapp.controller.InternalController">
+		<property name="commandClass" value="com.myshopnshare.webapp.form.EmployerForm" />
+		<property name="commandName" value="register" />
+		<property name="formView" value="login/internal88668864455" />
+		<property name="successView" value="login/internal88668864455" />
+    </bean>
+	<bean id="institutionController" class="com.myshopnshare.webapp.controller.InstitutionController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>	 
+	<bean id="institutionRegisterController" class="com.myshopnshare.webapp.controller.InstitutionRegisterController">
+		<property name="commandClass" value="com.myshopnshare.webapp.form.InstitutionForm" />
+		<property name="commandName" value="register" />
+		<property name="formView" value="login/institutionRegister" />
+		<property name="successView" value="login/confirmRegister" />
+    </bean>	            	        	
+	<bean id="ordersController" class="com.myshopnshare.webapp.controller.OrdersController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>
+	<bean id="buyOrderController" class="com.myshopnshare.webapp.controller.BuyOrderController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>	   
+	<bean id="sellOrderController" class="com.myshopnshare.webapp.controller.SellOrderController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>	      	   
+	<bean id="faceController" class="com.myshopnshare.webapp.controller.FaceController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>    
+	<bean id="accountController" class="com.myshopnshare.webapp.controller.AccountController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>
+	<bean id="emailController" class="com.myshopnshare.webapp.controller.EmailController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>
+	<bean id="chatController" class="com.myshopnshare.webapp.controller.ChatController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>
+	
+	<bean id="photoController" class="com.myshopnshare.webapp.controller.PhotoController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>	
+	<bean id="addressController" class="com.myshopnshare.webapp.controller.AddressController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>
+	
+	<!--  
+	<bean id="loginController" class="com.myshopnshare.webapp.controller.LoginController">
+	</bean>	
+	-->
+	
+	<bean id="loginRedirectController" class="com.myshopnshare.webapp.controller.LoginRedirectController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>
+
+	<bean id="cartController" class="com.myshopnshare.webapp.controller.ShoppingCartController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>
+	<bean id="eventsController" class="com.myshopnshare.webapp.controller.EventsController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>
+	<bean id="eventsCommentController" class="com.myshopnshare.webapp.controller.EventsCommentController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>
+	<bean id="searchEventsController" class="com.myshopnshare.webapp.controller.SearchEventsController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>
+
+	<bean id="testMethodNameResolver" class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+		<property name="paramName" value="method"/>
+		<property name="defaultMethodName" value="view"/>
+	</bean>
+			
+	<bean id="confirmEmailController" class="com.myshopnshare.webapp.controller.ConfirmEmailController">
+		<property name="commandClass" value="com.myshopnshare.webapp.form.ConfirmForm" />
+		<property name="commandName" value="confirmForm" />		
+		<property name="formView" value="login/confirmRegister" />
+		<property name="successView" value="secure/home/homePage" />	
+	</bean>
+	<bean id="registerController" class="com.myshopnshare.webapp.controller.RegisterController">
+		<property name="commandClass" value="com.myshopnshare.webapp.form.RegisterForm" />
+		<property name="commandName" value="register" />
+		<property name="formView" value="login/registerForm" />
+		<property name="successView" value="login/confirmRegister" />
+	</bean>
+
+	<bean id="contactController" class="com.myshopnshare.webapp.controller.ContactController">
+		<property name="commandClass" value="com.myshopnshare.core.domain.Contact" />
+	</bean>
+	
+	<bean id="merchantRegisterController" class="com.myshopnshare.webapp.controller.MerchantRegisterController">
+		<property name="commandClass" value="com.myshopnshare.webapp.form.RegisterForm" />
+	</bean>
+	
+	<bean id="creditCardController" class="com.myshopnshare.webapp.controller.CreditCardController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>
+	<bean id="phoneController" class="com.myshopnshare.webapp.controller.PhoneController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>
+	
+	<bean id="paymentController" class="com.myshopnshare.webapp.controller.PaymentController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>
+	<bean id="subscribeController" class="com.myshopnshare.webapp.controller.SubscribeController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>	
+	</bean>	
+	<bean id="scribbleController" class="com.myshopnshare.webapp.controller.ScribbleController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>	
+	</bean>
+	<bean id="headlineController" class="com.myshopnshare.webapp.controller.HeadlineController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>
+	<bean id="productController" class="com.myshopnshare.webapp.controller.ProductController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>
+	<bean id="merchantController" class="com.myshopnshare.webapp.controller.MerchantController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+    </bean>		
+    
+	<bean id="userItemsManagementController" class="com.myshopnshare.webapp.controller.UserItemsManagementController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>	
+	<bean id="possessionsController" class="com.myshopnshare.webapp.controller.PossessionsController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>	
+	<bean id="itemCategoryController" class="com.myshopnshare.webapp.controller.ItemCategoryController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>		
+	<bean id="adsController" class="com.myshopnshare.webapp.controller.AdsController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>
+	<bean id="permissionController" class="com.myshopnshare.webapp.controller.PermissionController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>
+	<bean id="visibilityController" class="com.myshopnshare.webapp.controller.VisibilityController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>
+	<bean id="itemActionController" class="com.myshopnshare.webapp.controller.ItemActionController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>
+	<bean id="itemCommentsController" class="com.myshopnshare.webapp.controller.ItemCommentsController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>
+	<bean id="publicItemCommentsController" class="com.myshopnshare.webapp.controller.PublicItemCommentsController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>
+	<bean id="userGroupController" class="com.myshopnshare.webapp.controller.UserGroupController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>
+	<bean id="journalController" class="com.myshopnshare.webapp.controller.JournalController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>
+	<bean id="commercialController" class="com.myshopnshare.webapp.controller.CommercialController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>	
+	</bean>
+	<bean id="searchProductsController" class="com.myshopnshare.webapp.controller.SearchProductsController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>	
+	<bean id="searchPointsController" class="com.myshopnshare.webapp.controller.SearchPointItemsController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>		
+	<bean id="searchServicesController" class="com.myshopnshare.webapp.controller.SearchServicesController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>
+	<bean id="publicPageController" class="com.myshopnshare.webapp.controller.PublicPageController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>
+	<bean id="mainPageController" class="com.myshopnshare.webapp.controller.MainPageController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>
+	<bean id="ratingController" class="com.myshopnshare.webapp.controller.RatingController">
+		<property name="methodNameResolver" ref="commonMethodNameResolver"/>
+	</bean>	 
+</beans>

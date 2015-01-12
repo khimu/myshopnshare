@@ -1,0 +1,45 @@
+<%@ include file="/WEB-INF/jsp/includes.jsp"%>
+
+<decorator:usePage id="p" />
+<%
+			HttpServletRequest req = p.getRequest();
+			StringBuffer printUrl = new StringBuffer();
+			printUrl.append( req.getRequestURI() );
+			printUrl.append("?printable=true");
+			if (request.getQueryString()!=null) {
+				printUrl.append('&');
+				printUrl.append(request.getQueryString());
+			}
+%>
+
+<%@ include file="../secure/tools/bank_tool.jsp"%>
+
+
+<div id="fisheye" class="fisheye">
+<div class="fisheyeContainter">
+	<a href="javascript:void();"
+	class="launchLink fisheyeItem"><span>Home</span><img
+	src="${baseurl}/images/home.png" width="20" /></a> <a href="#"
+	class="fisheyeItem"><span>Email</span><img
+	src="${baseurl}/images/email.png" width="20" /></a> <a href="#"
+	class="fisheyeItem"><span>Monitor</span><img
+	src="${baseurl}/images/display.png" width="20" /></a> <a href="#"
+	class="fisheyeItem"><span>Clock</span><img
+	src="${baseurl}/images/clock.png" width="20" /></a> <a href="#"
+	class="fisheyeItem"><span>Web</span><img
+	src="${baseurl}/images/web.png" width="20" /></a> <a
+	href="<%= printUrl %>" class="fisheyeItem"><span>Priner</span><img
+	src="${baseurl}/images/printer.gif" width="20" /></a></div>
+</div>
+<%--
+<div id="fisheye2" class="fisheye">
+		<div class="fisheyeContainter">
+			<a href="#" class="fisheyeItem2"><span>Home</span><img src="images/bar/home.png" width="30" /></a>
+			<a href="#" class="fisheyeItem2"><span>Email</span><img src="images/bar/email.png" width="30" /></a>
+			<a href="#" class="fisheyeItem2"><span>Display</span><img src="images/bar/display.png" width="30" /></a>
+			<a href="#" class="fisheyeItem2"><span>Clock</span><img src="images/bar/clock.png" width="30" /></a>
+			<a href="#" class="fisheyeItem2"><span>Web</span><img src="images/bar/web.png" width="30" /></a>
+
+		</div>
+</div>
+ --%>

@@ -1,0 +1,46 @@
+
+a.toc {
+	color: #000000;
+	text-decoration: none;
+}
+
+
+.tpbrbody {
+	background-color: #424889;
+	color: #FFFFFF;
+	border-bottom: 1px solid #303463;
+}
+.tpbrtext {
+	padding-left: 15px; 
+	padding-right: 15px;
+	color: #FFFFFF; 
+	font-weight: bold;
+}
+.main {
+	margin: 0px;
+}
+
+.main TD TH {
+	vertical-align: top;
+	text-align: left;
+}
+
+td,p {
+	font: normal x-small verdana, arial, helvetica, sans-serif;
+}
+
+.panel {
+	background-color: #F4F7FB;
+	border: 1px solid #BCD2E6;
+}
+
+.panelTitle {
+	padding: 2px;
+	font-weight: bold;
+	background-color: #BCD2E9;
+}
+
+.panelBody {
+	padding: 2px;
+	background-color: #F4F7FC;
+}

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/2/trunk/myshopnshare.war/events
+END
+events.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/2/trunk/myshopnshare.war/events/events.jsp
+END
+comments.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/2/trunk/myshopnshare.war/events/comments.jsp
+END
+edit.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/2/trunk/myshopnshare.war/events/edit.jsp
+END
+search.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/2/trunk/myshopnshare.war/events/search.jsp
+END
+eventPage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/2/trunk/myshopnshare.war/events/eventPage.jsp
+END
+jsonEventComment.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/2/trunk/myshopnshare.war/events/jsonEventComment.jsp
+END
+jsonEventComments.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/2/trunk/myshopnshare.war/events/jsonEventComments.jsp
+END
+results.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/2/trunk/myshopnshare.war/events/results.jsp
+END
+form.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/2/trunk/myshopnshare.war/events/form.jsp
+END
