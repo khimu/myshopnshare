@@ -17,8 +17,8 @@ import com.myshopnshare.core.dao.PersonDAO;
 import com.myshopnshare.core.domain.ItemOrderDetail;
 import com.myshopnshare.core.domain.Person;
 import com.myshopnshare.core.enums.OrderStatus;
-
-@RunWith(SpringJUnit4ClassRunner.class)
+//
+//@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "applicationContext.xml",
 		"applicationContext-dao.xml", "applicationContext-service.xml" })
 @Transactional

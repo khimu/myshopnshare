@@ -536,9 +536,20 @@
 		<jdbc.artifactId>mysql-connector-java</jdbc.artifactId>
 		<jdbc.version>5.1.10</jdbc.version>
 		<jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
-		<jdbc.url>jdbc:mysql://mysql-primary:3306/${db.name}</jdbc.url>
-		<jdbc.username>shopnshare</jdbc.username>
-		<jdbc.password>QuercovFud9</jdbc.password>
+
+<!--
+		Swat with below if running locally
+
+		<jdbc.username>root</jdbc.username>
+		<jdbc.password>root</jdbc.password>
+-->
+
+                <jdbc.username>shopnshare</jdbc.username>
+                <jdbc.password>QuercovFud9</jdbc.password>
+
+		<jdbc.url>jdbc:mysql://localhost:3306/${db.name}</jdbc.url>
+
+
 
 		<!-- Properties calculated by AppFuse when running full-source plugin -->
 		<commons.beanutils.version>1.8.1</commons.beanutils.version>

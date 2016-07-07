@@ -21,7 +21,7 @@ import com.myshopnshare.core.domain.Person;
 import com.myshopnshare.core.domain.VisibilityDomain;
 import com.myshopnshare.core.domain.VisibilityDomainPerson;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+//@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "applicationContext.xml",
 		"applicationContext-dao.xml", "applicationContext-service.xml" })
 @Transactional

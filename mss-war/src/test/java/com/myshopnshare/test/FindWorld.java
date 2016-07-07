@@ -8,10 +8,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.myshopnshare.core.dao.EmailDAO;
@@ -20,15 +18,15 @@ import com.myshopnshare.core.dao.ItemCategoryDAO;
 import com.myshopnshare.core.dao.ItemDAO;
 import com.myshopnshare.core.dao.ItemVisibilityDomainDAO;
 import com.myshopnshare.core.dao.PersonDAO;
-import com.myshopnshare.core.dao.UserDAO;
 import com.myshopnshare.core.dao.VisibilityDomainDAO;
 import com.myshopnshare.core.domain.Item;
 import com.myshopnshare.core.domain.ItemCategory;
 import com.myshopnshare.core.domain.Person;
 import com.myshopnshare.core.domain.VisibilityDomain;
 import com.myshopnshare.core.enums.CategoryType;
+import com.myshopnshare.dao.UserDao;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+//@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "applicationContext.xml",
 		"applicationContext-dao.xml", "applicationContext-service.xml" })
 @Transactional
@@ -40,7 +38,7 @@ public class FindWorld {
 	private PersonDAO personDAO;
 
 	@Autowired
-	private UserDAO userDAO;
+	private UserDao userDAO;
 
 	@Autowired
 	private ItemDAO itemDAO;

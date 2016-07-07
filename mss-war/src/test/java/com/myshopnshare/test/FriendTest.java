@@ -6,24 +6,22 @@ import static org.junit.Assert.assertNotNull;
 import java.util.List;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.myshopnshare.core.dao.EmailDAO;
 import com.myshopnshare.core.dao.FriendDAO;
 import com.myshopnshare.core.dao.ItemDAO;
 import com.myshopnshare.core.dao.PersonDAO;
-import com.myshopnshare.core.dao.UserDAO;
 import com.myshopnshare.core.dao.VisibilityDomainDAO;
 import com.myshopnshare.core.domain.Friend;
 import com.myshopnshare.core.domain.FriendVisibility;
 import com.myshopnshare.core.domain.Person;
 import com.myshopnshare.core.domain.VisibilityDomain;
+import com.myshopnshare.dao.UserDao;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+//@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "applicationContext.xml",
 		"applicationContext-dao.xml", "applicationContext-service.xml" })
 @Transactional
@@ -35,7 +33,7 @@ public class FriendTest {
 	private PersonDAO personDAO;
 
 	@Autowired
-	private UserDAO userDAO;
+	private UserDao userDAO;
 
 	@Autowired
 	private ItemDAO itemDAO;

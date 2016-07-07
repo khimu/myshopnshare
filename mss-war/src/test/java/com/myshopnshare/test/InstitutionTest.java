@@ -19,7 +19,7 @@ import com.myshopnshare.core.dao.InstitutionDAO;
 import com.myshopnshare.core.dao.PersonDAO;
 import com.myshopnshare.core.domain.Institution;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+//@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "applicationContext.xml",
 		"applicationContext-dao.xml", "applicationContext-service.xml" })
 @Transactional
