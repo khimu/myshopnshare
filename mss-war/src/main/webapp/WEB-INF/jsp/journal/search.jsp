@@ -7,11 +7,11 @@
 			$('#search_friends').submit(function(){
 				var searchString = $('#search_friends_text').val();
 				 $.ajax({  
-				       type: "post",  
+				       type: "post",
 				       url: "/secure/potentialFriends.do",
 				       data: {method: 'search', searchString: searchString},
-				       success: function(data){  
-					       $('#center').html(data);	   
+				       success: function(data){
+					       $('#center').html(data);
 					       $("#search_friends_text").Watermark("Search Friends");
 				       } 
 				     });
