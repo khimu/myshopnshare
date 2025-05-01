@@ -1,59 +1,203 @@
-
 # Controllers
+AbstractMultiActionController.md
+AccountController.md
+AddressController.md
+AdminController.md
+AdsController.md
+AnnotationBasedController.md
+BankController.md
+BaseController.md
+BaseFormController.md
+BuyOrderController.md
+ChatController.md
+CommercialController.md
+ConfirmEmailController.md
+ContactController.md
+CreditCardController.md
+EducationController.md
+EmailController.md
+EmployerController.md
+EmployerRegisterController.md
+EmploymentController.md
+EventsCommentController.md
+EventsController.md
+FaceController.md
+FileUpload.md
+FileUploadController.md
+FriendPageController.md
+HeadlineController.md
+HomePageController.md
+InstitutionController.md
+InstitutionRegisterController.md
+InternalController.md
+ItemActionController.md
+ItemCategoryController.md
+ItemCommentsController.md
+ItemPageController.md
+JournalController.md
 LoginController.md
+LoginRedirectController.md
+MainPage.md
+MainPageController.md
+ManageFriendsController.md
+ManageRequestController.md
+MerchantController.md
+MerchantRegisterController.md
+NewsController.md
+OrdersController.md
+PasswordHintController.md
+PaymentController.md
+PermissionController.md
+PersonController.md
+PhoneController.md
+PhotoController.md
+PhotoUploaderController.md
+PointItemPageController.md
+PossessionsController.md
+PotentialFriendsController.md
+ProductController.md
+ProfileController.md
+PublicItemCommentsController.md
+PublicPageController.md
+PublicSearchController.md
+RatingController.md
+RegisterController.md
+ReloadController.md
+ScribbleController.md
+SearchController.md
+SearchEventsController.md
+SearchPointItemsController.md
+SearchProductsController.md
+SearchServicesController.md
+SellOrderController.md
+SettingsController.md
+ShoppingCartController.md
+SignupController.md
+SubscribeController.md
+TestHandlerInterceptor.md
 UserController.md
-...
-# Services / Managers
-UserManager.md
-RoleManager.md
-ActionService.java*                          FaceServiceImpl.java*                        PermissionVisibilityService.java*
-ActionServiceImpl.java*                      FriendService.java*                          PermissionVisibilityServiceImpl.java*
-AddressService.java*                         FriendServiceImpl.java*                      PersonService.java*
-AddressServiceImpl.java*                     GenericService.java*                         PersonServiceImpl.java*
-AdsService.java*                             GenericServiceImpl.java*                     PersonVisibilityDomainService.java*
-AdsServiceImpl.java*                         HeadlineService.java*                        PersonVisibilityDomainServiceImpl.java*
-AdsTagService.java*                          HeadlineServiceImpl.java*                    PhoneService.java*
-AdsTagServiceImpl.java*                      InstitutionService.java*                     PhoneServiceImpl.java*
-AuditLogManager.java*                        InstitutionServiceImpl.java*                 PhotoCategoryService.java*
-AuditLogManagerImpl.java*                    ItemCategoryService.java*                    PhotoCategoryServiceImpl.java*
-AuthoritiesService.java*                     ItemCategoryServiceImpl.java*                PhotoService.java*
-AuthoritiesServiceImpl.java*                 ItemOrderDetailService.java*                 PhotoServiceImpl.java*
-BankService.java*                            ItemOrderDetailServiceImpl.java*             PointItemService.java*
-BankServiceImpl.java*                        ItemService.java*                            PointItemServiceImpl.java*
-CartItemService.java*                        ItemServiceImpl.java*                        PreferenceService.java*
-CartItemServiceImpl.java*                    ItemUploadService.java*                      PreferenceServiceImpl.java*
-CommentsService.java*                        ItemUploadServiceImpl.java*                  RegisterService.java*
-CommentsServiceImpl.java*                    ItemVisibilityDomainService.java*            RegisterServiceImpl.java*
-CommercialService.java*                      ItemVisibilityDomainServiceImpl.java*        RequestFriendService.java*
-CommercialServiceImpl.java*                  JournalService.java*                         RequestFriendServiceImpl.java*
-ConfirmEmailService.java*                    JournalServiceImpl.java*                     ScribbleService.java*
-ConfirmEmailServiceImpl.java*                JournalVisibilityService.java*               ScribbleServiceImpl.java*
-ContactService.java*                         JournalVisibilityServiceImpl.java*           ScribbleVisibilityDomainService.java*
-ContactServiceImpl.java*                     MerchantService.java*                        ScribbleVisibilityDomainServiceImpl.java*
-CounterService.java*                         MerchantServiceImpl.java*                    ShoppingCartService.java*
-CounterServiceImpl.java*                     NewsCommentService.java*                     ShoppingCartServiceImpl.java*
-CreditCardService.java*                      NewsCommentServiceImpl.java*                 SnapBackService.java*
-CreditCardServiceImpl.java*                  NewsService.java*                            SnapBackServiceImpl.java*
-EmailService.java*                           NewsServiceImpl.java*                        VendorItemService.java*
-EmailServiceImpl.java*                       NewsVisibilityDomainService.java*            VendorItemServiceImpl.java*
-EmployerService.java*                        NewsVisibilityDomainServiceImpl.java*        VendorItemVisibilityDomainService.java*
-EmployerServiceImpl.java*                    OrderService.java*                           VendorItemVisibilityDomainServiceImpl.java*
-EventVisibilityService.java*                 OrderServiceImpl.java*                       VendorService.java*
-EventVisibilityServiceImpl.java*             PaymentService.java*                         VendorServiceImpl.java*
-EventsService.java*                          PaymentServiceImpl.java*                     VisibilityDomainService.java*
-EventsServiceImpl.java*                      PermissionService.java*                      VisibilityDomainServiceImpl.java*
-FaceService.java*                            PermissionServiceImpl.java*                  VisibilityServiceImpl.java*
-UserService.md
-...
-# Exceptions / AOP / Cross-cutting
-UserExistsException.md
-UserSecurityAdvice.md
-...
-# Infrastructure / Integration
-MailEngine.md
-...
-# Domain Models
-Action.md
+UserFormController.md
+UserGroupController.md
+UserItemsManagementController.md
+UsernamePasswordController.md
+VendorItemPageController.md
+VisibilityController.md
+
+# Services (Interfaces)
+ActionService.md
+AddressService.md
+AdsService.md
+AdsTagService.md
+AuthoritiesService.md
+BankService.md
+CartItemService.md
+CommentsService.md
+CommercialService.md
+ConfirmEmailService.md
+ContactService.md
+CounterService.md
+CreditCardService.md
+EmailService.md
+EmployerService.md
+EventVisibilityService.md
+EventsService.md
+FaceService.md
+FriendService.md
+GenericService.md
+HeadlineService.md
+InstitutionService.md
+ItemCategoryService.md
+ItemOrderDetailService.md
+ItemService.md
+ItemUploadService.md
+ItemVisibilityDomainService.md
+JournalService.md
+JournalVisibilityService.md
+MerchantService.md
+NewsCommentService.md
+NewsService.md
+NewsVisibilityDomainService.md
+OrderService.md
+PaymentService.md
+PermissionService.md
+PermissionVisibilityService.md
+PersonService.md
+PersonVisibilityDomainService.md
+PhoneService.md
+PhotoCategoryService.md
+PhotoService.md
+PointItemService.md
+PreferenceService.md
+RegisterService.md
+RequestFriendService.md
+ScribbleService.md
+ScribbleVisibilityDomainService.md
+ShoppingCartService.md
+SnapBackService.md
+VendorItemService.md
+VendorItemVisibilityDomainService.md
+VendorService.md
+VisibilityDomainService.md
+VisibilityService.md
+
+# Services (Implementations)
+ActionServiceImpl.md
+AddressServiceImpl.md
+AdsServiceImpl.md
+AdsTagServiceImpl.md
+AuthoritiesServiceImpl.md
+BankServiceImpl.md
+CartItemServiceImpl.md
+CommentsServiceImpl.md
+CommercialServiceImpl.md
+ConfirmEmailServiceImpl.md
+ContactServiceImpl.md
+CounterServiceImpl.md
+CreditCardServiceImpl.md
+EmailServiceImpl.md
+EmployerServiceImpl.md
+EventVisibilityServiceImpl.md
+EventsServiceImpl.md
+FaceServiceImpl.md
+FriendServiceImpl.md
+GenericServiceImpl.md
+HeadlineServiceImpl.md
+InstitutionServiceImpl.md
+ItemCategoryServiceImpl.md
+ItemOrderDetailServiceImpl.md
+ItemServiceImpl.md
+ItemUploadServiceImpl.md
+ItemVisibilityDomainServiceImpl.md
+JournalServiceImpl.md
+JournalVisibilityServiceImpl.md
+MerchantServiceImpl.md
+NewsCommentServiceImpl.md
+NewsServiceImpl.md
+NewsVisibilityDomainServiceImpl.md
+OrderServiceImpl.md
+PaymentServiceImpl.md
+PermissionServiceImpl.md
+PermissionVisibilityServiceImpl.md
+PersonServiceImpl.md
+PersonVisibilityDomainServiceImpl.md
+PhoneServiceImpl.md
+PhotoCategoryServiceImpl.md
+PhotoServiceImpl.md
+PointItemServiceImpl.md
+PreferenceServiceImpl.md
+RegisterServiceImpl.md
+RequestFriendServiceImpl.md
+ScribbleServiceImpl.md
+ScribbleVisibilityDomainServiceImpl.md
+ShoppingCartServiceImpl.md
+SnapBackServiceImpl.md
+VendorItemServiceImpl.md
+VendorItemVisibilityDomainServiceImpl.md
+VendorServiceImpl.md
+VisibilityDomainServiceImpl.md
+VisibilityServiceImpl.md
+
+# Models / Entities / Value Objects
 Address.md
 Admin.md
 Ads.md
@@ -132,7 +276,6 @@ PointItem.md
 PointItemOrderDetail.md
 Profile.md
 Rating.md
-RegisterController.md
 RequestFriend.md
 RewardCart.md
 Role.md
@@ -152,49 +295,26 @@ VirtualItemOrderDetail.md
 VisibilityDomain.md
 VisibilityDomainPerson.md
 Vote.md
-AcceptPerson.java*                    DirEntry.java*                        ItemTag.java*                         PhotoCategory.java*
-Action.java*                          DomainObject.java*                    ItemVisibilityDomain.java*            PointItem.java*
-Address.java*                         Education.java*                       Journal.java*                         PointItemOrderDetail.java*
-Admin.java*                           EmailAddress.java*                    JournalTag.java*                      Profile.java*
-Ads.java*                             Employer.java*                        JournalVisibility.java*               Rating.java*
-AdsTag.java*                          Employment.java*                      LineItemDetail.java*                  RequestFriend.java*
-Advice.java*                          EventTag.java*                        LogEntryKey.java*                     RewardCart.java*
-AuditLog.java*                        EventVisibility.java*                 Merchant.java*                        Role.java*
-AuditLogList.java*                    Events.java*                          News.java*                            Scribble.java*
-AuditLogOperation.java*               EventsComment.java*                   NewsComment.java*                     ScribbleTag.java*
-Authorities.java*                     Face.java*                            NewsVisibilityDomain.java*            ScribbleVisibilityDomain.java*
-Balance.java*                         FavoriteAd.java*                      NonLogable.java*                      ShoppingCart.java*
-Bank.java*                            Friend.java*                          OrderDetail.java*                     SnapBack.java*
-CardCreditNumber.java*                FriendVisibility.java*                PageViewed.java*                      SystemGroups.java*
-CartItem.java*                        Gender.java*                          Payment.java*                         TestBean.java*
-Comment.java*                         GroupPerson.java*                     Permission.java*                      Tool.java*
-Commercial.java*                      GuestPerson.java*                     PermissionPermissionVisibility.java*  Vendor.java*
-CommercialTag.java*                   Headline.java*                        PermissionVisibility.java*            VendorItem.java*
-ConfirmEmail.java*                    Institution.java*                     PermissionVisibilityPerson.java*      VendorItemVisibilityDomain.java*
-ConsideringPerson.java*               IpAddress.java*                       PersistentLogins.java*                VirtualItemOrderDetail.java*
-Contact.java*                         Item.java*                            Person.java*                          VisibilityDomain.java*
-Counter.java*                         ItemCategory.java*                    PersonTag.java*                       VisibilityDomainPerson.java*
-CreditCard.java*                      ItemOrderDetail.java*                 PersonVisibilityDomain.java*          Vote.java*
-Customize.java*                       ItemRating.java*                      Phone.java*                           
-DeclinePerson.java*                   ItemShippingDetail.java*              Photo.java*                           
 
-# utils
-AND.java*                    EQ.java*                     IdUtil.java*                 LIKE.java*                   Parse.java*
-Age.java*                    EmailUtil.java*              ImageFileFilter.java*        None.java*                   Parser.java*
-BuildHQL.java*               Filter.java*                 Images.java*                 OR.java*                     photo/
-Dump.java*                   FormatedToStringStyle.java*  Join.java*                   Paginate.java*               
-ConvertUtil.java*         CurrencyConverter.java*   DateConverter.java*       DateUtil.java*            TimestampConverter.java*
+# Utility / Infrastructure
+MailEngine.md
+UserSecurityAdvice.md
 
-# forms
-ConfirmForm.java*      EmployerForm.java*     InstitutionForm.java*  ProfileForm.java*      
-ContactForm.java*      EventsForm.java*       PaymentForm.java*      RegisterForm.java*
+# Exceptions
+UserExistsException.md
 
-# filter
-LocaleFilter.java*          LocaleRequestWrapper.java*  StaticFilter.java*
+# Managers (non-interface)
+AuditLogManager.md
+AuditLogManagerImpl.md
+GenericManager.md
+GenericManagerImpl.md
+LookupManager.md
+LookupManagerImpl.md
+RoleManager.md
+RoleManagerImpl.md
+UserManager.md
+UserManagerImpl.md
 
-# taglib
-ConstantsTag.java*  ConstantsTei.java*  CountryTag.java*    LabelTag.java
-
-# listener
-StartupListener.java*      UserCounterListener.java
+# Service Contracts (alternate naming)
+UserService.md
 
